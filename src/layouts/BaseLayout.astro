@@ -1,0 +1,35 @@
+---
+import Head from '../components/Head.astro';
+import Navbar from '../components/Navbar.astro';
+// Supports weights 100-900
+import '@fontsource-variable/inter';
+
+interface Props {
+    title?: string | undefined;
+    description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en' class='dark'>
+    <head>
+        <Head title={title} description={description} />
+    </head>
+    <body class='bg-white dark:bg-black'>
+        <Navbar />
+        <div>
+            <slot />
+        </div>
+        <script>
+            // Add “loaded” class once the document has completely loaded.
+            addEventListener('load', () => document.documentElement.classList.add('loaded'));
+        </script>
+        <style>
+            body {
+                font-family: 'Inter Variable', sans-serif;
+            }
+        </style>
+    </body>
+</html>
