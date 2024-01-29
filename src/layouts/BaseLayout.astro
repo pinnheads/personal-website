@@ -22,8 +22,7 @@ const { title, description } = Astro.props;
         <div>
             <slot />
         </div>
-        <!-- Cloudflare Web Analytics -->
-        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "332e5cbaefa04896ae12ae2e5c41dc38"}'></script><!-- End Cloudflare Web Analytics -->
+        
         <script>
             // Add “loaded” class once the document has completely loaded.
             addEventListener('load', () => document.documentElement.classList.add('loaded'));
@@ -33,5 +32,7 @@ const { title, description } = Astro.props;
                 font-family: 'Inter Variable', sans-serif;
             }
         </style>
+        <!-- Cloudflare Web Analytics -->
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "332e5cbaefa04896ae12ae2e5c41dc38"}'></script><!-- End Cloudflare Web Analytics -->
     </body>
 </html>
