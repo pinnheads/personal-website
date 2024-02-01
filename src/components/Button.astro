@@ -1,0 +1,13 @@
+---
+interface Props {
+    btnText: string;
+    href: string;
+    style?: string;
+}
+
+const { href, btnText, style = 'text-black dark:text-white' } = Astro.props;
+---
+
+<a href={href} class={style}>
+    {btnText}
+</a>

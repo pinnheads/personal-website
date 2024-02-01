@@ -1,18 +1,20 @@
 ---
 import { Image } from 'astro:assets';
+import Socials from '../components/Socials.astro';
+import Button from '../components/Button.astro';
 import SkillsDark from '../assets/skills-bg-dark.png';
 import SkillsLight from '../assets/skills-bg-light.png';
 import Profile from '../assets/profile-circle.webp';
 ---
 
 <section id='about'>
-    <div class='flex flex-col md:flex-row justify-between w-full h-full py-6'>
-        <div class='w-full font-extrabold space-y-2 md:space-y-8 py-4'>
-            <p class='text-black dark:text-white text-2xl md:text-3xl 3xl:text-6xl'>
+    <div class='flex flex-col portrait:flex-col md:flex-row justify-between w-full h-full py-6 md:pt-20'>
+        <div class='w-full font-extrabold space-y-2 md:space-y-8 py-4 animate-fade-right animate-duration-[1000ms]'>
+            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl'>
                 <span class='text-da-gray dark:text-lg-gray'>Hello! I'm</span>
                 Utsav Deep
             </p>
-            <p class='text-black dark:text-white text-2xl md:text-3xl 3xl:text-6xl'>
+            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl'>
                 <span class='text-da-gray dark:text-lg-gray'>a</span>
                 Test Automation Specialist
             </p>
@@ -23,50 +25,32 @@ import Profile from '../assets/profile-circle.webp';
                 efficient, reliable results.
             </p>
             <div class='space-y-2 md:space-y-8'>
-                <!-- TODO: Add social component here -->
-                <ul class='flex flex-row w-full md:w-6/12 justify-between py-4 text-black dark:text-white'>
-                    <li class='rounded-full text-white dark:text-black bg-da-gray p-8'>
-                        <a href='#'></a>
-                    </li>
-                    <li class='rounded-full text-white dark:text-black bg-da-gray p-8'>
-                        <a href='#'></a>
-                    </li>
-                    <li class='rounded-full text-white dark:text-black bg-da-gray p-8'>
-                        <a href='#'></a>
-                    </li>
-                    <li class='rounded-full text-white dark:text-black bg-da-gray p-8'>
-                        <a href='#'></a>
-                    </li>
-                </ul>
+                <Socials />
                 <!-- TODO: Add Resume and Contact section links here -->
-                <ul
-                    class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-evenly md:justify-between text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold'
+                <div
+                    class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-evenly md:justify-start md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
                 >
-                    <li class='text-teal'>
-                        <a href='#'>Contact</a>
-                    </li>
-                    <li>
-                        <a href='#'>Resume</a>
-                    </li>
-                </ul>
+                    <Button btnText='Contact' style='text-teal' href='#contact'/>
+                    <Button btnText='Resume' href='https://utsavdeep.com/resume.pdf'/>
+                </div>
             </div>
         </div>
-        <div class='w-full md:w-4/5 2xl:w-4/6 flex justify-center'>
+        <div class='w-full portrait:w-full md:w-4/5 2xl:w-4/6 flex justify-center'>
             <Image
                 src={Profile}
                 alt='All the technologies I have worked with'
-                class='animate-fade size-56 md:size-64 2xl:size-96 animate-ease-in animate-duration-[300ms]'
+                class='animate-fade size-56 md:size-64 portrait:mt-16 2xl:size-96 animate-ease-in animate-duration-[300ms]'
             />
         </div>
     </div>
     <Image
         src={SkillsLight}
         alt='All the technologies I have worked with'
-        class='dark:invisible visible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-3/6 2xl:w-auto'
+        class='dark:invisible visible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-3/6 portrait:w-auto 2xl:w-auto'
     />
     <Image
         src={SkillsDark}
         alt='All the technologies I have worked with'
-        class='dark:visible invisible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-3/6 2xl:w-auto'
+        class='dark:visible invisible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-3/6 portrait:w-auto 2xl:w-auto'
     />
 </section>
