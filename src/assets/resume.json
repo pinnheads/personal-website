@@ -1,0 +1,229 @@
+{
+    "basics": {
+        "name": "Utsav Deep",
+        "label": "Test Automation Specialist",
+        "image": "",
+        "email": "utsvadeep022@outlook.com",
+        "phone": "+91-8088013139",
+        "url": "https://utsavdeep.com",
+        "summary": "Test Engineer with over 2.5 years of experience specializing in automation testing. Proficient in a variety of modern automation tools and programming languages including JAVA, Selenium, Cucumber, Appium, and other test automation tools. Demonstrated ability to design and improve test automation frameworks and drive efficient, reliable results. Committed to maintaining technical skills and up-to-date industry knowledge.",
+        "location": {
+            "address": "2712 Broadway St",
+            "postalCode": "560094",
+            "city": "Bengaluru",
+            "countryCode": "IN",
+            "region": "Karnataka"
+        },
+        "profiles": [
+            {
+                "network": "Twitter",
+                "username": "utsavdeep01",
+                "url": "https://twitter.com/utsavdeep01"
+            },
+            {
+                "network": "Github",
+                "username": "pinnheads",
+                "url": "https://github.com/pinnheads"
+            },
+            {
+                "network": "LinkedIn",
+                "username": "Utsav Deep",
+                "url": "https://www.linkedin.com/in/utsavdeep"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "IGS",
+            "position": "Test Engineer",
+            "url": "https://igsindia.net",
+            "startDate": "2022-01-01",
+            "summary": "As a Test Engineer at IGS, I automated end-to-end tests using frameworks like SerenityBDD, Selenium, and Cucumber. I used NodeJS for backend verification and component level test automation. I improved testing efficiency with a mobile device testing framework using Appium and executed API tests for two online payment apps' proof-of-concept.",
+            "highlights": [
+                "Promoted from Test Associate (1 year and 11 months) to Test Engineer due to demonstrated technical proficiency, alignment with company visions, and commitment to quality assurance",
+                "Utilized SerenityBDD, Selenium, RestAssured, Cucumber framework with Java to automate over 40 End-to-End tests along with integration and functional testing",
+                "Implemented NodeJS based server routes to interact with CloudWatch Logs to verify backend functionality and automate component level tests",
+                "Established a robust mobile device testing automation framework using Appium, contributing to the enhancement of testing efficiency and effectiveness.",
+                "Played a key role in the proof-of-concept for two online payment applications by creating and executing API tests using TestNG and RestAssured"
+            ]
+        },
+        {
+            "name": "IGS",
+            "position": "Trainee Consultant",
+            "url": "https://igsindia.net",
+            "startDate": "2021-07-01",
+            "endDate": "2021-12-01",
+            "summary": "In my previous role, I automated 300+ regression tests using Selenium/WebDriver, reducing test time. I established a CI pipeline with Jenkins and GitHub for auto test execution and alerts. I trained testers on WebDriverIO and SerenityBDD for a team-wide automation approach. I also collaborated with testers for functional testing and defect logging using Jira, Testrail, and Browserstack.",
+            "highlights": [
+                "Successfully automated over 300 regression tests using the Selenium/WebDriver framework, significantly reducing the time needed for regression test execution",
+                "Set up a proof-of-concept CI pipeline with Jenkins and GitHub for automatic test execution and email alerts for better observability.",
+                "Trained manual testers on WebDriverIO and SerenityBDD, promoting a team-wide approach to test automation.",
+                "Collaborated with manual testers for functional testing by creating and running functional tests and logging defects using Jira, Testrail, and Browserstack."
+            ]
+        },
+        {
+            "name": "Cushy",
+            "position": "Intern",
+            "url": "#",
+            "startDate": "2019-06-01",
+            "endDate": "2019-08-01",
+            "summary": " I collaborated with the marketing team to gather customer data from Google and Zomato, enhancing outreach. I shadowed the Marketing team leader to gain insights into client and team management, including cold calling. I onboarded customers onto our app through cold calls and field visits to local businesses, where I demonstrated our application's potential.",
+            "highlights": [
+                "Collaborated with the marketing team to gather potential customer data from platforms like Google and Zomato, enhancing our customer outreach.",
+                "Gained insights into client and team management by shadowing the Marketing team leader, which included learning the art of making effective cold calls.",
+                "Conducted cold calls to pitch sales to potential customers, successfully onboarding them onto our app.",
+                "Undertook field visits to local businesses for onboarding and provided demos of our application, demonstrating its potential to aid their growth."
+            ]
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "Organization",
+            "position": "Volunteer",
+            "url": "https://organization.com/",
+            "startDate": "2012-01-01",
+            "endDate": "2013-01-01",
+            "summary": "Description…",
+            "highlights": [
+                "Awarded 'Volunteer of the Month'"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Presidency University",
+            "url": "https://presidencyuniversity.in/",
+            "area": "Computer Science and Engineering",
+            "studyType": "Bachelor of Technology",
+            "startDate": "2017-08-01",
+            "endDate": "2021-05-01",
+            "score": "7.42",
+            "courses": [
+                "Database Management System",
+                "Operating Systems",
+                "Computer Organization and Architecture",
+                "Data Structures and Algorithms",
+                "Compilers",
+                "Web Development"
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "title": "Award",
+            "date": "2014-11-01",
+            "awarder": "Company",
+            "summary": "There is no spoon."
+        }
+    ],
+    "certificates": [
+        {
+            "name": "Certificate",
+            "date": "2021-11-07",
+            "issuer": "Company",
+            "url": "https://certificate.com"
+        }
+    ],
+    "publications": [
+        {
+            "name": "Publication",
+            "publisher": "Company",
+            "releaseDate": "2014-10-01",
+            "url": "https://publication.com",
+            "summary": "Description…"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Languages",
+            "level": "",
+            "keywords": [
+                "Java",
+                "Javascript",
+                "Python"
+            ]
+        },
+        {
+            "name": "Tools",
+            "level": "",
+            "keywords": [
+                "Intellij Idea",
+                "Eclipse",
+                "Postman",
+                "Appium Studio",
+                "Docker",
+                "Visual Studio Code",
+                "Linux"
+            ]
+        },
+        {
+            "name": "Frameworks",
+            "level": "",
+            "keywords": [
+                "Playwright",
+                "WebDriverIO",
+                "SerenityBDD",
+                "Appium",
+                "Selenium",
+                "RestAssured",
+                "Cucumber",
+                "NodeJS",
+                "AWS SDK"
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "English",
+            "fluency": "Native speaker"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Wildlife",
+            "keywords": [
+                "Ferrets",
+                "Unicorns"
+            ]
+        }
+    ],
+    "references": [
+        {
+            "name": "Jane Doe",
+            "reference": "Reference…"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Personal-Portfolio-2.0",
+            "startDate": "",
+            "endDate": "",
+            "description": "My personal portfolio website is a sophisticated platform built with Astro and Tailwind, and hosted on Netlify. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
+            "highlights": [
+                "AstroJS",
+                "Svelte",
+                "Javascript",
+                "Tailwind",
+                "HTML",
+                "SSR",
+                "Netlify",
+                "Github Actions"
+            ],
+            "url": "https://github.com/pinnheads/Personal-Portfolio-2.0",
+            "live": "https://utsavdeep.com"
+        },
+        {
+            "name": "latex-resume",
+            "startDate": "",
+            "endDate": "",
+            "description": "My resume written in LaTeX, accompanied by a JSON file that facilitates seamless data updates on my portfolio website.",
+            "highlights": [
+                "LaTeX",
+                "JSON",
+                "Github Actions"
+            ],
+            "url": "https://github.com/pinnheads/latex-resume",
+            "live": "https://utsavdeep.com/resume.pdf"
+        }
+    ]
+}
