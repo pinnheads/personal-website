@@ -10,7 +10,7 @@ export class HomePage {
 
 
     constructor(public readonly page: Page) {
-        this.brandName = this.page.getByText('Utsav Deep');
+        this.brandName = this.page.getByTestId('brand-name');
         this.themeToggleButton = this.page.getByTestId('theme-button');
         this.projectsLink = this.page.getByTestId('section-link-projects');
         this.experienceLink = this.page.getByTestId('section-link-experience');
