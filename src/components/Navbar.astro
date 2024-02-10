@@ -2,7 +2,7 @@
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<nav class="flex items-center place-content-center justify-between md:flex-row text-black dark:text-white px-6 py-2 md:p-8">
+<nav class="flex items-center place-content-center justify-between md:flex-row text-black dark:text-white px-6 py-2 md:p-8" data-testid="navbar">
      <div class="flex space-x-2 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#00e0b0" viewBox="0 0 256 256"><path d="M72.5,150.63,100.79,128,72.5,105.37a12,12,0,1,1,15-18.74l40,32a12,12,0,0,1,0,18.74l-40,32a12,12,0,0,1-15-18.74ZM144,172h32a12,12,0,0,0,0-24H144a12,12,0,0,0,0,24ZM236,56V200a20,20,0,0,1-20,20H40a20,20,0,0,1-20-20V56A20,20,0,0,1,40,36H216A20,20,0,0,1,236,56Zm-24,4H44V196H212Z"></path></svg>
         <a class='text-2xl md:text-3xl font-extrabold' data-testid="brand-name" href='/'>Utsav Deep</a>
@@ -22,13 +22,13 @@ import ThemeToggle from './ThemeToggle.astro';
             class='text-center items-center md:flex md:justify-between text-xl md:text-2xl font-semibold space-y-4 md:space-y-0 md:space-x-10'
             >
                 <li onclick='menuHandler()'>
-                    <a href='#projects' data-testid="section-link-projects">Projects</a>
+                    <a href='#projects' data-testid="lg-link-projects">Projects</a>
                 </li>
                 <li onclick='menuHandler()'>
-                    <a href='#experience' data-testid="section-link-experience">Experience</a>
+                    <a href='#experience' data-testid="lg-link-experience">Experience</a>
                 </li>
                 <li onclick='menuHandler()'>
-                    <a href='#contact' data-testid="section-link-contact">Contact</a>
+                    <a href='#contact' data-testid="lg-link-contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -40,13 +40,13 @@ import ThemeToggle from './ThemeToggle.astro';
     class='text-center items-center md:flex md:justify-between text-xl md:text-2xl font-semibold space-y-4 md:space-y-0 md:space-x-10'
     >
         <li onclick='menuHandler()'>
-            <a href='#projects' data-testid="section-link-projects">Projects</a>
+            <a href='#projects' data-testid="sm-link-projects">Projects</a>
         </li>
         <li onclick='menuHandler()'>
-            <a href='#experience' data-testid="section-link-experience">Experience</a>
+            <a href='#experience' data-testid="sm-link-experience">Experience</a>
         </li>
         <li onclick='menuHandler()'>
-            <a href='#contact' data-testid="section-link-contact">Contact</a>
+            <a href='#contact' data-testid="sm-link-contact">Contact</a>
         </li>
     </ul>
 </div>
