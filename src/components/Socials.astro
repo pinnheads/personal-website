@@ -2,17 +2,18 @@
 import Icon from './Icon.astro';
 ---
 
-<ul class='flex flex-row w-full md:w-8/12 2xl:w-6/12 justify-between py-4 text-black dark:text-white'>
+<ul class='flex flex-row w-full md:w-8/12 2xl:w-6/12 justify-between py-4 text-black dark:text-white' data-testid="intro-socials">
     <a
         href='mailto:utsavdeep01@gmail.com'
         title='email link'
         target="_blank"
         class='rounded-full text-white dark:text-black bg-white dark:bg-black'
+        data-testid="social-email"
     >
         <!-- TODO: Figure out shadow animation for the links -->
         <Icon
             icon='email'
-            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-lg-gray'
+            style='size-10 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-white'
         />
     </a>
     <a
@@ -20,11 +21,12 @@ import Icon from './Icon.astro';
         title='github link'
         target="_blank"
         class='rounded-full text-white dark:text-black bg-white dark:bg-black'
+        data-testid="social-github"
     >
         <!-- TODO: Figure out shadow animation for the links -->
         <Icon
             icon='github'
-            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-lg-gray'
+            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-white'
         />
     </a>
     <a
@@ -32,11 +34,12 @@ import Icon from './Icon.astro';
         title='linkedin link'
         target="_blank"
         class='rounded-full text-white dark:text-black bg-white dark:bg-black'
+        data-testid="social-linkedin"
     >
         <!-- TODO: Figure out shadow animation for the links -->
         <Icon
             icon='linkedin'
-            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-lg-gray'
+            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-white'
         />
     </a>
     <a
@@ -44,11 +47,12 @@ import Icon from './Icon.astro';
         title='twitter link'
         target="_blank"
         class='rounded-full text-white dark:text-black bg-white dark:bg-black'
+        data-testid="social-twitter"
     >
         <!-- TODO: Figure out shadow animation for the links -->
         <Icon
             icon='twitter'
-            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-lg-gray'
+            style='size-12 md:size-14 fill-black rounded-full hover:scale-125 ease-in-out duration-300 dark:fill-white'
         />
     </a>
 </ul>

@@ -11,17 +11,17 @@ const { data } = Astro.props;
 ---
 
 <section id='about'>
-    <div class='flex flex-col portrait:flex-col md:flex-row justify-between w-full h-full py-6 md:pt-20'>
+    <div class='flex flex-col portrait:flex-col-reverse md:flex-row justify-between w-full h-full py-6 md:pt-24'>
         <div class='w-full font-extrabold space-y-2 md:space-y-8 py-4 animate-fade-right animate-duration-[1000ms]'>
-            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl'>
+            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl' data-testid="intro-name">
                 <span class='text-da-gray dark:text-lg-gray'>Hello! I'm</span>
                 {data.name}
             </p>
-            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl'>
+            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl' data-testid="intro-profession">
                 <span class='text-da-gray dark:text-lg-gray'>a</span>
                 {data.label}
             </p>
-            <p class='text-da-gray dark:text-lg-gray font-medium text-justify md:text-left'>
+            <p class='text-da-gray text-sm md:text-base dark:text-lg-gray font-medium text-justify md:text-left' data-testid="intro-summary">
                 {data.summary}
             </p>
             <div class='space-y-2 md:space-y-8'>
@@ -29,8 +29,8 @@ const { data } = Astro.props;
                 <div
                     class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-evenly md:justify-start md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
                 >
-                    <Button btnText='Contact' style='text-teal' href='#contact'/>
-                    <Button btnText='Resume' href={Resume}/>
+                    <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/>
+                    <Button btnText='Resume' href={Resume} testid='resume-btn'/>
                 </div>
             </div>
         </div>
@@ -38,18 +38,21 @@ const { data } = Astro.props;
             <Image
                 src={Profile}
                 alt='All the technologies I have worked with'
-                class='animate-fade size-56 md:size-64 portrait:mt-16 2xl:size-96 animate-ease-in animate-duration-[300ms]'
+                class='animate-fade size-56 md:size-64 portrait:mb-10 2xl:size-96 animate-ease-in animate-duration-[300ms]'
+                data-testid="intro-profile-image"
             />
         </div>
     </div>
     <Image
         src={SkillsLight}
         alt='All the technologies I have worked with'
-        class='dark:invisible visible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-3/6 portrait:w-auto 2xl:w-auto'
+        class='dark:invisible visible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-5/12 portrait:hidden 2xl:w-auto'
+        data-testid="skills-image-light"
     />
     <Image
         src={SkillsDark}
         alt='All the technologies I have worked with'
-        class='dark:visible invisible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-3/6 portrait:w-auto 2xl:w-auto'
+        class='dark:visible invisible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-5/12 portrait:hidden 2xl:w-auto'
+        data-testid="skills-image-dark"
     />
 </section>
