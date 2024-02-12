@@ -59,7 +59,6 @@ test.describe('Verify Home page', () => {
         await homePage.navigateToGithubProfile();
         const newPage = await pagePromise;
         await newPage.waitForLoadState();
-        console.log(await newPage.title());
         await expect(newPage).toHaveURL(/github.com\/pinnheads/);
     })
 
@@ -68,7 +67,6 @@ test.describe('Verify Home page', () => {
         await homePage.navigateToTwitterProfile();
         const newPage = await pagePromise;
         await newPage.waitForLoadState();
-        console.log(await newPage.title());
         await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
     })
 
@@ -77,7 +75,6 @@ test.describe('Verify Home page', () => {
         await homePage.navigateToLinkedinProfile();
         const newPage = await pagePromise;
         await newPage.waitForLoadState();
-        console.log(await newPage.title());
         await expect(newPage).toHaveURL(/linkedin.com\/in\/utsavdeep/);
     })
 })
