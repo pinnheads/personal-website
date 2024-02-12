@@ -5,7 +5,7 @@ export default {
 	theme: {
 		colors: {
 			'teal': '#00E0B0',
-			'black': '#17181c',
+			'black': '#111418',
 			'white': '#F8F8F8',
 			'lg-gray': '#A4A4A4',
 			'da-gray': '#656565'
