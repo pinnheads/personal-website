@@ -3,9 +3,12 @@ import type {Page, Locator} from '@playwright/test';
 export class HomePage {
     public readonly brandName: Locator;
     public readonly themeToggleButton: Locator;
-    public readonly projectsLink: Locator;
-    public readonly experienceLink: Locator;
-    public readonly contactLink: Locator;
+    public readonly smProjectsLink: Locator;
+    public readonly smExperienceLink: Locator;
+    public readonly smContactLink: Locator;
+    public readonly lgProjectsLink: Locator;
+    public readonly lgExperienceLink: Locator;
+    public readonly lgContactLink: Locator;
     public readonly hamburgerMenu: Locator;
     public readonly introName: Locator;
     public readonly label: Locator;
@@ -24,9 +27,12 @@ export class HomePage {
     constructor(public readonly page: Page) {
         this.brandName = this.page.getByTestId('brand-name');
         this.themeToggleButton = this.page.getByTestId('theme-button');
-        this.projectsLink = this.page.getByTestId('section-link-projects');
-        this.experienceLink = this.page.getByTestId('section-link-experience');
-        this.contactLink = this.page.getByTestId('section-link-contact');
+        this.smProjectsLink = this.page.getByTestId('sm-link-projects');
+        this.smExperienceLink = this.page.getByTestId('sm-link-experience');
+        this.smContactLink = this.page.getByTestId('sm-link-contact');
+        this.lgProjectsLink = this.page.getByTestId('lg-link-projects');
+        this.lgExperienceLink = this.page.getByTestId('lg-link-experience');
+        this.lgContactLink = this.page.getByTestId('lg-link-contact');
         this.hamburgerMenu = this.page.getByTestId('hamburger-menu');
         this.introName = this.page.getByTestId('intro-name');
         this.label = this.page.getByTestId('intro-profession');
@@ -55,16 +61,28 @@ export class HomePage {
         await this.hamburgerMenu.click();
     }
 
-    async navigateToProjects() {
-        await this.projectsLink.click();
+    async navigateToSmProjects() {
+        await this.smProjectsLink.click();
     }
 
-    async navigateToExperience() {
-        await this.experienceLink.click();
+    async navigateToSmExperience() {
+        await this.smExperienceLink.click();
     }
 
-    async navigateToContact() {
-        await this.contactLink.click();
+    async navigateToSmContact() {
+        await this.smContactLink.click();
+    }
+
+    async navigateToLgProjects() {
+        await this.lgProjectsLink.click();
+    }
+
+    async navigateToLgExperience() {
+        await this.lgExperienceLink.click();
+    }
+
+    async navigateToLgContact() {
+        await this.lgContactLink.click();
     }
 
     async navigateToHome() {
