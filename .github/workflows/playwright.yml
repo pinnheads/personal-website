@@ -20,7 +20,7 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
     - name: Run Build process
-      run: npx playwright test
+      run: npm run build
     - uses: actions/upload-artifact@v3
       if: always()
       with:
