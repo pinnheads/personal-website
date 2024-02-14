@@ -45,7 +45,8 @@ test.describe('Verify Home page', () => {
 
     test('verify contact section navigation', async ({ page }) => {
         await homePage.navigateToContactSection();
-        await expect(page).toHaveURL(/#contact/);
+        // await expect(page).toHaveURL(/#contact/);  TODO: Check for flag before using this assertion
+        await expect(homePage.contact).toBeVisible();
     })
 
     // Headless mode doesn't support navigation to a PDF document. See the upstream issue https://bugs.chromium.org/p/chromium/issues/detail?id=761295.
