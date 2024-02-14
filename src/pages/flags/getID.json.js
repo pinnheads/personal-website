@@ -1,7 +1,7 @@
 import flagData from '../../assets/flags.json' assert {type: 'json'};
 
 export const GET = () =>  {
-  const data: string[] = []
+  const data = []
   
   Object.keys(flagData).forEach((key) => {
     data.push(key);
