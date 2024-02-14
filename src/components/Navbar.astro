@@ -27,7 +27,7 @@ const isOn = localsData.isOn;
         >
     </div>
     <div class="flex items-center space-x-2 md:space-x-8 p-4 md:p-0">
-        { isOn('navbarLinks') ? (
+        { await isOn('navbarLinks') ? (
         <div class="flex md:hidden items-center space-x-2 md:space-x-8">
             <div class="flex flex-col space-x-4 items-center">
                 <button
@@ -81,7 +81,7 @@ const isOn = localsData.isOn;
         <ThemeToggle />
     </div>
 </nav>
-{ isOn('navbarLinks') ? (
+{ await isOn('navbarLinks') ? (
 <div
     class="hidden z-10 fixed bg-white/95 dark:bg-black/80 place-content-center w-full items-center md:w-auto text-black dark:text-white"
     id="menu"

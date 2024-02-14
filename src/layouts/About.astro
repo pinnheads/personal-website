@@ -7,9 +7,8 @@ import SkillsLight from '../assets/skills-bg-light.png';
 import Resume from '../assets/resume.pdf';
 import Profile from '../assets/profile-circle.webp';
 
-const { data } = Astro.props;
-const localsData = Astro.locals;
-const isOn = localsData.isOn;
+const { isOn, getData } = Astro.locals;
+const data = await getData('basics');
 ---
 
 <section id='about'>
@@ -32,7 +31,7 @@ const isOn = localsData.isOn;
                     class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-evenly md:justify-start md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
                 >
                     {
-                        isOn('navbarLinks') ? <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/> : <Button btnText='Contact' style='text-teal' href='mailto:utsavdeep01@gmail.com' testid='contact-btn'/>
+                        await isOn('navbarLinks') ? <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/> : <Button btnText='Contact' style='text-teal' href='mailto:utsavdeep01@gmail.com' testid='contact-btn'/>
                     }
                     <Button btnText='Resume' href={Resume} testid='resume-btn'/>
                 </div>
