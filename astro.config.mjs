@@ -10,5 +10,11 @@ export default defineConfig({
   },
   integrations: [tailwind()],
   output: "server",
-  adapter: cloudflare()
+  adapter: cloudflare({
+    routes: {
+      strategy: 'include',
+      include: ['/resume/*.json', '/flags/*.json'], // handled by custom function: functions/resume/[id].json.js and functions/flags/[id].json.js
+      exclude: [], // handled by static page
+    },
+  })
 });
