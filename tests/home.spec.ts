@@ -10,7 +10,7 @@ test.describe('Verify Home page', () => {
         await homePage.goto();
     })
 
-    test('verify intro section', async ({ page }) => {
+    test('verify intro section', async () => {
         // Verify Name
         await expect(homePage.introName).toContainText(resumeData.basics.name)
 
@@ -43,7 +43,7 @@ test.describe('Verify Home page', () => {
         }
     })
 
-    test('verify contact section navigation', async ({ page }) => {
+    test('verify contact section navigation', async () => {
         await homePage.navigateToContactSection();
         // await expect(page).toHaveURL(/#contact/);  TODO: Check for flag before using this assertion
         await expect(homePage.contact).toBeVisible();
@@ -55,7 +55,7 @@ test.describe('Verify Home page', () => {
     //     await expect(page).toHaveURL(/resume/);
     // })
 
-    test('verify github navigation', async ({ page, context }) => {
+    test('verify github navigation', async ({ context }) => {
         const pagePromise = context.waitForEvent('page');
         await homePage.navigateToGithubProfile();
         const newPage = await pagePromise;
@@ -63,7 +63,7 @@ test.describe('Verify Home page', () => {
         await expect(newPage).toHaveURL(/github.com\/pinnheads/);
     })
 
-    test('verify twitter navigation', async ({ page, context }) => {
+    test('verify twitter navigation', async ({ context }) => {
         const pagePromise = context.waitForEvent('page');
         await homePage.navigateToTwitterProfile();
         const newPage = await pagePromise;
@@ -71,7 +71,7 @@ test.describe('Verify Home page', () => {
         await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
     })
 
-    test('verify linkedin navigation', async ({ page, context }) => {
+    test('verify linkedin navigation', async ({ context }) => {
         const pagePromise = context.waitForEvent('page');
         await homePage.navigateToLinkedinProfile();
         const newPage = await pagePromise;

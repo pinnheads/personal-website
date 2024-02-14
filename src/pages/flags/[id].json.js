@@ -1,8 +1,7 @@
-import type { APIRoute, Params } from 'astro';
 import flagData from '../../assets/flags.json' assert {type: 'json'};
 
-export const GET: APIRoute = ({ params }: {params: Params}) =>  {
-  const id = params.id;
+export const GET = ({ params }) =>  {
+  const id = params.id != undefined ? 'navbarLinks' : '';
 
   if (!flagData[id]) {
     return new Response(null, {
@@ -21,6 +20,6 @@ export const GET: APIRoute = ({ params }: {params: Params}) =>  {
   );
 }
 
-export const ALL: APIRoute = () => {
+export const ALL = () => {
   return new Response(JSON.stringify(flagData));
 }
