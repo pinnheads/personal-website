@@ -2,10 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import About from "../layouts/About.astro";
 import json from "../assets/resume.json";
-
 const data = json;
 ---
 
 <BaseLayout>
-    <About data={json.basics} />
+    <About data={data.basics} />
 </BaseLayout>
