@@ -1,7 +1,6 @@
-import type { APIRoute} from 'astro';
 import flagData from '../../assets/flags.json' assert {type: 'json'};
 
-export const GET: APIRoute = () =>  {
+export const GET = () =>  {
   const data: string[] = []
   
   Object.keys(flagData).forEach((key) => {
@@ -18,6 +17,6 @@ export const GET: APIRoute = () =>  {
   );
 }
 
-export const ALL: APIRoute = () => {
+export const ALL = () => {
   return new Response(JSON.stringify(flagData));
 }

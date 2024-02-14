@@ -1,7 +1,6 @@
-import type { APIRoute, Params } from 'astro';
 import resumeData from '../../assets/resume.json' assert {type: 'json'};
 
-export const GET: APIRoute = ({ params }: {params: Params}) =>  {
+export const GET = ({ params }) =>  {
   const id = params.id;
 
   if (!resumeData[id]) {
@@ -21,6 +20,6 @@ export const GET: APIRoute = ({ params }: {params: Params}) =>  {
   );
 }
 
-export const ALL: APIRoute = () => {
+export const ALL = () => {
   return new Response(JSON.stringify(resumeData));
 }
