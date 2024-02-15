@@ -6,7 +6,7 @@ on:
     branches:
         - 'main'
     paths:
-        - 'public/resume.pdf'
+        - 'src/assets/resume.pdf'
 jobs:
     merge_pr:
         timeout-minutes: 2

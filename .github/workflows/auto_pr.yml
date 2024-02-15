@@ -4,7 +4,7 @@ on:
     branches:
         - 'resume'
     paths:
-        - 'public/resume.pdf'
+        - 'src/assets/resume.pdf'
 jobs:
   create_pr:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
             # configure git
             git config --global user.name "Utsav Deep"
             git config --global user.email "utsavdeep01@gmail.com"
-        -   name: Create Pull Request
-            run: gh pr create -B main -H resume --title '[GITHUB ACTION] Updated Resume' --body 'This PR was created automatically by Github Actions for updated resume file to be merged to main branch' --label gh-resume
+        -   name: Create Pull Request for preview
+            run: gh pr create -B preview -H resume --title '[GITHUB ACTION] Updated Resume' --body 'This PR was created automatically by Github Actions for updated resume file to be merged to main branch' --label gh-resume
             env:
                 GITHUB_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
