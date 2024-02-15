@@ -1,7 +1,5 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main, preview ]
   pull_request:
     branches: [ main, preview ]
 jobs:
@@ -19,11 +17,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-    - name: Run Build process
-      run: npm run build
     - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
-        retention-days: 30
+        retention-days: 2
