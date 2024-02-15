@@ -26,7 +26,7 @@ jobs:
                 id: wait-for-build
                 with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  checkName: Playwright Tests
+                  checkName: test
                   intervalSeconds: 30
                   ref: ${{ github.event.pull_request.head.sha || github.sha }}
             -   name: Merge PR
