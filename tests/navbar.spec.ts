@@ -13,7 +13,7 @@ test.describe('Verify Navbar', () => {
         await expect(page).toHaveTitle(/Utsav Deep/);
     })
 
-    test('brand name is visible', async ({ page }) => {
+    test('brand name is visible', async () => {
         // Verify the visibility of the brand name
         await expect(homePage.brandName).toBeVisible();
 
