@@ -5,6 +5,7 @@ on:
         - opened
     branches:
         - 'main'
+        - 'preview'
     paths:
         - 'src/assets/resume.pdf'
 jobs:
