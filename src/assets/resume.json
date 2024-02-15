@@ -38,6 +38,7 @@
             "position": "Test Engineer",
             "url": "https://igsindia.net",
             "startDate": "2022-01-01",
+            "endDate": "2024-02-28",
             "summary": "As a Test Engineer at IGS, I automated end-to-end tests using frameworks like SerenityBDD, Selenium, and Cucumber. I used NodeJS for backend verification and component level test automation. I improved testing efficiency with a mobile device testing framework using Appium and executed API tests for two online payment apps' proof-of-concept.",
             "highlights": [
                 "Promoted from Test Associate (1 year and 11 months) to Test Engineer due to demonstrated technical proficiency, alignment with company visions, and commitment to quality assurance",
