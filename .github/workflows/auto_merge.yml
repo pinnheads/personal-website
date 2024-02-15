@@ -5,8 +5,9 @@ on:
         - opened
     branches:
         - 'main'
+        - 'preview'
     paths:
-        - 'public/resume.pdf'
+        - 'src/assets/resume.pdf'
 jobs:
     merge_pr:
         timeout-minutes: 2
