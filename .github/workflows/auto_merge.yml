@@ -10,7 +10,7 @@ on:
         - 'src/assets/resume.pdf'
 jobs:
     merge_pr:
-        timeout-minutes: 2
+        timeout-minutes: 5
         if: contains(github.event.pull_request.labels.*.name, 'gh-resume')
         runs-on: ubuntu-latest
         permissions:
@@ -21,10 +21,14 @@ jobs:
             -   name: Output PR number
                 run: |
                     echo "${{ github.event.number }}"
-            -   name: GitHub Checks
-                uses: poseidon/wait-for-status-checks@v0.3.0
+            -   name: Wait for build to succeed
+                uses: fountainhead/action-wait-for-check@v1.1.0
+                id: wait-for-build
                 with:
                   token: ${{ secrets.GITHUB_TOKEN }}
+                  checkName: Playwright Tests
+                  intervalSeconds: 30
+                  ref: ${{ github.event.pull_request.head.sha || github.sha }}
             -   name: Merge PR
                 run: gh pr merge $PR_NUMBER --merge
                 env:
