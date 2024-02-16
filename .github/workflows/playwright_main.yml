@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
   pull_request:
-    branches: [ main, preview ]
+    branches: [ main ]
 jobs:
   test:
     timeout-minutes: 60
@@ -17,6 +17,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+      env:
+        ENV: preview
+        URL: https://preview.utsavdeep.com
     - uses: actions/upload-artifact@v3
       if: always()
       with:
