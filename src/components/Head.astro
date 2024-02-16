@@ -1,16 +1,38 @@
 ---
 import '../styles/global.css';
+import SitePreview from '../assets/site-preview.png';
 
 interface Props {
     title?: string | undefined;
     description?: string | undefined;
 }
 
-const { title = 'Utsav Deep - Personal Portfolio', description = 'The personal site of Utsav Deep' } = Astro.props;
+const { getData } = Astro.locals;
+const data = await getData('basics');
+
+const { title = `${data.name} - ${data.label}`, description = `${data.summary}` } = Astro.props;
 ---
 
 <meta charset='UTF-8' />
-<meta name='description' property='og:description' content={description} />
+<!-- Primary Meta Tags -->
+<title>{data.name} - {data.label}</title>
+<meta name="title" content=`${data.name} - ${data.label}` />
+<meta name="description" content=`${data.summary}` />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://utsavdeep.com/" />
+<meta property="og:title" content=`${data.name} - ${data.label}` />
+<meta property="og:description" content=`${data.summary}` />
+<meta property="og:image" content="https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://utsavdeep.com/" />
+<meta property="twitter:title" content=`${data.name} - ${data.label}` />
+<meta property="twitter:description" content=`${data.summary}` />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png" />
+
 <meta name='viewport' content='width=device-width' />
 <meta name='generator' content={Astro.generator} />
 <title>{title}</title>
