@@ -2,5 +2,6 @@
 declare namespace App {
     interface Locals {
         isOn: Function
+        getData: Function
     }
 }
