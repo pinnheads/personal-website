@@ -29,7 +29,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     colorScheme: 'dark',
-    baseURL: process.env.URL ? process.env.URL : "http://localhost:4321",
+    baseURL: process.env.URL == undefined ? "http://localhost:4321" : process.env.URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',

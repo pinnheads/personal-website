@@ -1,14 +1,14 @@
 export async function onRequest ({ locals, request }, next) {
 
-    const url = import.meta.env.URL ? import.meta.env.URL : "https://utsavdeep.com"
+    const url = import.meta.env.URL == undefined ? "https://utsavdeep.com" : import.meta.env.URL;
     locals.isOn = async (featureName) => {
-        const response = await fetch(`${import.meta.env.URL}/flags/${featureName}.json`);
+        const response = await fetch(`${url}/flags/${featureName}.json`);
         const data = await response.json();
         return data[import.meta.env.ENV];
     }
 
     locals.getData = async (resData) => {
-        const response = await fetch(`${import.meta.env.URL}/resume/${resData}.json`);
+        const response = await fetch(`${url}/resume/${resData}.json`);
         const data = await response.json();
         return data;
     }
