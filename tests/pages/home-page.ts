@@ -51,7 +51,6 @@ export class HomePage {
 
     async goto() {
         await this.page.goto('');
-        console.log(process.env.URL)
     }
 
     async changeTheme() {
