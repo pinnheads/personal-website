@@ -19,7 +19,7 @@ jobs:
       run: npx playwright test
       env:
         ENV: preview
-        URL: https://utsavdeep.com
+        URL: https://preview.utsavdeep.com
     - uses: actions/upload-artifact@v3
       if: always()
       with:
