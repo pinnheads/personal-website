@@ -1,5 +1,6 @@
 export async function onRequest ({ locals, request }, next) {
 
+    const url = import.meta.env.URL ? import.meta.env.URL : "https://utsavdeep.com"
     locals.isOn = async (featureName) => {
         const response = await fetch(`${import.meta.env.URL}/flags/${featureName}.json`);
         const data = await response.json();
