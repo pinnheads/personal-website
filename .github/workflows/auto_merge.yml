@@ -6,12 +6,15 @@ on:
     branches:
         - 'main'
     paths:
-        - 'public/resume.pdf'
+        - 'src/assets/resume.pdf'
 jobs:
     merge_pr:
-        timeout-minutes: 10
+        timeout-minutes: 5
         if: contains(github.event.pull_request.labels.*.name, 'gh-resume')
         runs-on: ubuntu-latest
+        permissions:
+          pull-requests: write
+          checks: read
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v3
