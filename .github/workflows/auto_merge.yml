@@ -32,7 +32,7 @@ jobs:
             -   name: Merge PR
                 run: gh pr merge $PR_NUMBER --merge
                 env:
-                    GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+                    GITHUB_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
                     PR_NUMBER: "${{ github.event.number }}"
             -   name: Delete remote branch
                 run: |
