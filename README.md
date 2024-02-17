@@ -1,54 +1,85 @@
-# Astro Starter Kit: Basics
+<div align = "center">
 
-```sh
-npm create astro@latest -- --template basics
+<h1><a href="https://github.com/pinnheads/personal-website">Personal Portfolio</a></h1>
+
+<a href="https://github.com/pinnheads/Personal-Portfolio-2.0/graphs/contributors">
+<img alt="People" src="https://img.shields.io/github/contributors/pinnheads/personal-website?style=flat&color=ffaaf2&label=People"> </a>
+
+<a href="https://github.com/pinnheads/personal-website/stargazers">
+<img alt="Stars" src="https://img.shields.io/github/stars/pinnheads/personal-website?style=flat&color=98c379&label=Stars"></a>
+
+<a href="https://github.com/pinnheads/personal-website/network/members">
+<img alt="Forks" src="https://img.shields.io/github/forks/pinnheads/personal-website?style=flat&color=66a8e0&label=Forks"> </a>
+
+<a href="https://github.com/pinnheads/personal-website/watchers">
+<img alt="Watches" src="https://img.shields.io/github/watchers/pinnheads/personal-website?style=flat&color=f5d08b&label=Watches"> </a>
+
+<a href="https://github.com/pinnheads/personal-website/pulse">
+<img alt="Last Updated" src="https://img.shields.io/github/last-commit/pinnheads/personal-website?style=flat&color=e06c75&label="> </a>
+
+<!-- TODO: Add tests and deployment badges here -->
+
+<h3>Portfolio website built w/ Astro, Tailwind and Svelte 🎇🎉</h3>
+
+<figure>
+  <img src="src/assets/site-preview.png" width=1000 alt="repo-template in action">
+  <br/>
+</figure>
+
+</div>
+
+## ✨ Features
+
+-   Uses a JSON file to present data on the frontend
+-   Implements SSR with Astro
+-   [latex-resume](https://github.com/pinnheads/latex-resume) repo updates the resume file automatically with Github Actions
+
+## Setup
+
+### ⚡ Requirements
+
+-   Node 18.0 or greater
+
+### 🚀 Installation
+
+```bash
+git clone https://github.com/pinnheads/personal-website
+cd personal-website
+npm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### 💻 Usage
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## What's Next
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Planning to add few more projects and start blogging as well
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Behind The Code
 
-## 🧞 Commands
+### 🧰 Tooling
 
-All commands are run from the root of the project, from a terminal:
+-   [Astro](https://astro.build/)
+-   [Tailwind](https://tailwindcss.com/)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### 🔍 More Info
 
-## 👀 Want to learn more?
+-   [latex-resume](https://github.com/pinnheads/latex-resume) —  resume repo
+- [v1 portfolio](https://v1.utsavdeep.com) — first version of my  portfolio
+- [v2 portfolio](https://v2.utsavdeep.com) — second version of my  portfolio
+<hr>
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<div align="center">
+
+<strong>⭐ hit the star button if you found this useful ⭐</strong><br>
+
+<a href="https://github.com/pinnheads/repo-template">Source</a>
+| <a href="https://twitter.com/utsavdeep01" target="_blank">Twitter </a>
+| <a href="https://linkedin.com/in/utsavdeep" target="_blank">LinkedIn </a>
+| <a href="https://utsavdeep.com" target="_blank">Portfolio Website </a>
+| <a href="https://utsavdeep.com/project" target="_blank">Other Projects </a>
+
+</div>
