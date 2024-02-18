@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: smoke_main_pr
 on:
   pull_request:
     branches: [ main ]
@@ -16,7 +16,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --grep @smoke
       env:
         ENV: preview
         URL: https://preview.utsavdeep.com
