@@ -1,9 +1,9 @@
-name: auto_deploy_preview
+name: auto_deploy_prod
 on:
   push:
-    branches: [ preview ]
+    branches: [ main ]
 jobs:
-  deploy_preview:
+  deploy_prod:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -41,4 +41,4 @@ jobs:
           projectName: personal-website # e.g. 'my-project'
           directory: 'dist' # e.g. 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: preview
+          branch: main
