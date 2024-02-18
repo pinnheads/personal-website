@@ -10,7 +10,7 @@ test.describe('Verify Home page', () => {
         await homePage.goto();
     })
 
-    test('verify intro section', async () => {
+    test('verify intro section @regression', async () => {
         // Verify Name
         await expect(homePage.introName).toContainText(resumeData.basics.name)
 
@@ -21,7 +21,7 @@ test.describe('Verify Home page', () => {
         await expect(homePage.summary).toHaveText(resumeData.basics.summary)
     })
 
-    test('verify profile image and skills image', async ({ page, isMobile }) => {
+    test('verify profile image and skills image @regression', async ({ page, isMobile }) => {
         await expect(homePage.profileImage).toBeVisible();
 
         // Dark Mode - Skills Image
@@ -43,10 +43,15 @@ test.describe('Verify Home page', () => {
         }
     })
 
-    test('verify contact section navigation', async () => {
-        await homePage.navigateToContactSection();
-        // await expect(page).toHaveURL(/#contact/);  TODO: Check for flag before using this assertion
-        await expect(homePage.contact).toBeVisible();
+    test('verify contact section navigation @smoke', async ({page}) => {
+        const response = await fetch(`${process.env.URL}/flags/navbarLinks.json`)
+        const data = await response.json();
+        if (data[process.env.URL]) {
+            await homePage.navigateToContactSection();
+            await expect(page).toHaveURL(/#contact/);
+        } else {
+            await expect(homePage.contact).toBeVisible();
+        }
     })
 
     // Headless mode doesn't support navigation to a PDF document. See the upstream issue https://bugs.chromium.org/p/chromium/issues/detail?id=761295.
@@ -55,7 +60,7 @@ test.describe('Verify Home page', () => {
     //     await expect(page).toHaveURL(/resume/);
     // })
 
-    test('verify github navigation', async ({ context }) => {
+    test('verify github navigation @smoke', async ({ context }) => {
         const pagePromise = context.waitForEvent('page');
         await homePage.navigateToGithubProfile();
         const newPage = await pagePromise;
@@ -63,7 +68,7 @@ test.describe('Verify Home page', () => {
         await expect(newPage).toHaveURL(/github.com\/pinnheads/);
     })
 
-    test('verify twitter navigation', async ({ context }) => {
+    test('verify twitter navigation @smoke', async ({ context }) => {
         const pagePromise = context.waitForEvent('page');
         await homePage.navigateToTwitterProfile();
         const newPage = await pagePromise;
@@ -71,7 +76,7 @@ test.describe('Verify Home page', () => {
         await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
     })
 
-    test('verify linkedin navigation', async ({ context }) => {
+    test('verify linkedin navigation @smoke', async ({ context }) => {
         const pagePromise = context.waitForEvent('page');
         await homePage.navigateToLinkedinProfile();
         const newPage = await pagePromise;
