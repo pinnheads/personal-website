@@ -46,7 +46,7 @@ test.describe('Verify Home page', () => {
     test('verify contact section navigation @smoke', async ({page}) => {
         const response = await fetch(`${process.env.URL}/flags/navbarLinks.json`)
         const data = await response.json();
-        if(data[process.env.ENV]) {
+        if (data[process.env.URL]) {
             await homePage.navigateToContactSection();
             await expect(page).toHaveURL(/#contact/);
         } else {
