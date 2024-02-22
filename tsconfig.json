@@ -7,5 +7,7 @@
     "src/**/*.ts",
     "env.d.ts",
     "tests/**/*.ts"
-  ]
+,
+"src/aos.js"
+]
 }

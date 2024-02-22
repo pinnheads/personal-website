@@ -1,6 +1,7 @@
 ---
 import Head from '../components/Head.astro';
 import Navbar from '../components/Navbar.astro';
+import "aos/dist/aos.css"
 
 // Supports weights 100-900
 import '@fontsource-variable/inter';
@@ -20,13 +21,18 @@ const { title, description } = Astro.props;
     </head>
     <body class='bg-white dark:bg-black'>
         <Navbar />
-        <div class="px-6 py-2 md:p-8">
+        <div class="px-6 py-2 md:p-10">
             <slot />
         </div>
         
         <script>
+            import { aosInit } from '../aos';
+
+            aosInit();
             // Add “loaded” class once the document has completely loaded.
-            addEventListener('load', () => document.documentElement.classList.add('loaded'));
+            addEventListener('load', () => {
+                document.documentElement.classList.add('loaded')
+            });
         </script>
         <style>
             body {

@@ -2,6 +2,6 @@
     "navbarLinks": {
         "production": false,
         "preview": false,
-        "dev": false
+        "dev": true
     }
 }

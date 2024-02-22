@@ -7,15 +7,18 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/cloudflare": "^9.0.0",
+    "@astrojs/check": "^0.5.4",
+    "@astrojs/cloudflare": "^9.0.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/inter": "^5.0.16",
     "@fontsource/poppins": "^5.0.8",
-    "astro": "^4.2.6",
+    "aos": "^2.3.4",
+    "astro": "^4.4.0",
     "dotenv": "^16.4.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
