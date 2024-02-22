@@ -1,82 +1,42 @@
 ---
-import Icon from '../components/Icon.astro';
-const { isOn, getData } = Astro.locals;
-const data: {
+import Featured from '../components/Featured.astro';
+import Card from '../components/Card.astro';
+
+interface Project {
     name: string;
-    startDate: string;
-    endDate: string;
+    isFeatured: boolean;
     description: string;
     highlights: [string];
-    url: string;
+    github: string;
     live: string;
-}[] = await getData('projects');
-const featuredData = data[0];
+}
+
+const { isOn, getData } = Astro.locals;
+const data: Project[] = await getData('projects');
 ---
 
 <section class='mt-20 md:mt-40 animate-fade-right' id='projects'>
     <h1 class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl font-bold' data-aos='fade-right'>
         Projects
     </h1>
-    <p class='text-da-gray dark:text-lg-gray my-4' data-aos='fade-right'>My most recent and proud work</p>
-    <div class='my-2 flex flex-col portrait:flex-col md:flex-row items-center space-y-6 md:space-x-12'>
-        <div
-            class='flex flex-col md:flex-row items-center h-full relative before:absolute before:bottom-[-5%] before:border-2 before:border-teal before:bg-teal dark:before:bg-black before:right-[-5%] before:w-full before:h-full before:content-[""] md:hover:before:bottom-[-8%] md:hover:before:right-[-8%] md:hover:before:grayscale before:ease-linear before:duration-500'
-            data-aos='fade-right'
-        >
-            <img
-                src='src/assets/site-preview.png'
-                alt='Site card'
-                class='rounded-sm w-full hover:scale-105 ease-linear duration-500 xl:max-w-screen-md grayscale hover:grayscale-0'
-            />
-        </div>
-        <div class='flex flex-col text-da-gray dark:text-lg-gray space-y-4 h-full w-full' data-aos='fade-left'>
-            <p
-                class='flex items-center font-semibold text-black dark:text-white text-lg md:text-2xl after:content-["Featured"] after:text-teal after:font-bold after:bg-teal/25 after:border-2 after:border-teal after:rounded-full after:px-2 after:mx-2 after:text-xs after:animate-fade-up after:animate-delay-750'
-            >
-                {featuredData.name}
-            </p>
-            <p class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify'>
-                {featuredData.description}
-            </p>
-            <div class='flex flex-wrap text-lg-gray dark:text-da-gray justify-start'>
-                {
-                    featuredData.highlights.map((name) => (
-                        <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105'>
-                            {name}
-                        </p>
-                    ))
-                }
-            </div>
-            <div class='flex items-center space-x-6'>
-                {
-                    featuredData.url ? (
-                        <a
-                            class='font-semibold flex items-start hover:underline underline-offset-2'
-                            target='_blank'
-                            href={featuredData.url}
-                        >
-                            Github
-                            <Icon icon='arrow' style='ml-1 rotate-90 w-6 md:w-8 h-6 md:h-8' />
-                        </a>
-                    ) : (
-                        ''
-                    )
-                }
-                {
-                    featuredData.live ? (
-                        <a
-                            class='text-teal flex items-start font-semibold hover:underline underline-offset-2'
-                            target='_blank'
-                            href={featuredData.live}
-                        >
-                            See live
-                            <Icon icon='arrow' style='ml-1 rotate-90 w-6 md:w-8 h-6 md:h-8' />
-                        </a>
-                    ) : (
-                        ''
-                    )
-                }
-            </div>
-        </div>
+    <p class='text-da-gray dark:text-lg-gray mt-2 mb-4' data-aos='fade-right'>My most recent and proud work</p>
+    <div class='flex flex-col items-center space-y-6 md:space-y-0'>
+        {
+            data.map((project: Project) => (
+                project.isFeatured ? 
+                    <Featured project={project} /> : ""
+            ))
+        }
+    </div>
+    <div class="flex w-full justify-center my-6 md:my-10">
+        <p class="flex justify-between w-full items-center text-da-gray dark:text-lg-gray font-medium text-lg before:content-[''] before:w-1/12 before:md:w-4/12 before:h-[1px] before:bg-lg-gray before:mr-2 after:content-[''] after:w-1/12 after:md:w-4/12 after:h-[1px] after:bg-lg-gray after:mr-2">Other noteworthy projects</p>
+    </div>
+    <div class="my-2 grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4 items-center justify-evenly" data-aos="fade-up">
+        {
+            data.map((project: Project) => (
+                project.isFeatured ? 
+                    "": <Card project={project} />
+            ))
+        }
     </div>
 </section>
