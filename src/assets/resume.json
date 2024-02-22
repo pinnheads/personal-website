@@ -1,12 +1,12 @@
 {
     "basics": {
         "name": "Utsav Deep",
-        "label": "Test Automation Specialist",
+        "label": "Test Engineer",
         "image": "",
         "email": "mail@utsavdeep.com",
-        "phone": "+91-8088013139",
+        "phone": "+91-8867834645",
         "url": "https://utsavdeep.com",
-        "summary": "Test Engineer with over 2.5 years of experience specializing in automation testing. Proficient in a variety of modern automation tools and programming languages including JAVA, Selenium, Cucumber, Appium, and other test automation tools. Demonstrated ability to design and improve test automation frameworks and drive efficient, reliable results. Committed to maintaining technical skills and up-to-date industry knowledge.",
+        "summary": "Test Engineer with over 2.5 years of experience specializing in automation testing. Proficient in a variety of modern automation tools and programming languages including JAVA, Selenium, Cucumber, Appium, and other test automation tools. Demonstrated ability to design and improve test automation frameworks and drive efficient, reliable results.",
         "location": {
             "address": "2712 Broadway St",
             "postalCode": "560094",
@@ -196,35 +196,46 @@
     ],
     "projects": [
         {
-            "name": "Personal-Portfolio-2.0",
-            "startDate": "",
-            "endDate": "",
-            "description": "My personal portfolio website is a sophisticated platform built with Astro and Tailwind, and hosted on Netlify. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
+            "name": "Personal Portfolio Website",
+            "isFeatured": true,
+            "description": "My personal portfolio website is a website built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
             "highlights": [
-                "AstroJS",
-                "Svelte",
-                "Javascript",
+                "Astro",
+                "Typescript",
+                "Playwright",
                 "Tailwind",
                 "HTML",
+                "CSS",
                 "SSR",
-                "Netlify",
+                "Cloudflare",
                 "Github Actions"
             ],
-            "url": "https://github.com/pinnheads/Personal-Portfolio-2.0",
+            "github": "https://github.com/pinnheads/personal-website",
             "live": "https://utsavdeep.com"
         },
         {
-            "name": "latex-resume",
-            "startDate": "",
-            "endDate": "",
+            "name": "Latex Resume",
+            "isFeatured": false,
             "description": "My resume written in LaTeX, accompanied by a JSON file that facilitates seamless data updates on my portfolio website.",
             "highlights": [
                 "LaTeX",
                 "JSON",
                 "Github Actions"
             ],
-            "url": "https://github.com/pinnheads/latex-resume",
-            "live": "https://utsavdeep.com/resume.pdf"
+            "github": "https://github.com/pinnheads/latex-resume",
+            "live": ""
+        },
+        {
+            "name": "Drumkit Emulator",
+            "isFeatured": false,
+            "description": "A simple web drumkit emulator written in plain HTMl, CSS and Javascript",
+            "highlights": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "github": "https://github.com/pinnheads/drumkit.github.io",
+            "live": ""
         }
     ]
 }
