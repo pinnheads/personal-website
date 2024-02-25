@@ -12,7 +12,7 @@ const data = await getData('basics');
 ---
 
 <section id='about'>
-    <div class='flex flex-col portrait:flex-col-reverse md:flex-row justify-between w-full h-full py-6 md:pt-24'>
+    <div class='flex flex-col portrait:flex-col-reverse md:flex-row justify-between w-full h-full py-6 md:pt-16'>
         <div class='w-full font-extrabold space-y-2 md:space-y-8 py-4 animate-fade-right animate-duration-[1000ms]'>
             <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl' data-testid="intro-name">
                 <span class='text-da-gray dark:text-lg-gray'>Hello! I'm</span>
@@ -26,23 +26,23 @@ const data = await getData('basics');
                 {data.summary}
             </p>
             <div class='space-y-2 md:space-y-8'>
-                <Socials />
                 <div
-                    class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-evenly md:justify-start md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
+                class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-start space-x-5 md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
                 >
+                <Button btnText='Resume' href={Resume} testid='resume-btn'/>
                 <!-- TODO: Update this once Contact Section is Complete -->
-                    {
-                        await isOn('navbarLinks') ? <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/> : <Button btnText='Contact' style='text-teal' href='mailto:utsavdeep01@gmail.com' testid='contact-btn'/>
-                    }
-                    <Button btnText='Resume' href={Resume} testid='resume-btn'/>
+                {
+                    await isOn('navbarLinks') ? <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/> : <Button btnText='Contact' style='text-teal' href='mailto:utsavdeep01@gmail.com' testid='contact-btn'/>
+                }
                 </div>
+                <Socials />
             </div>
         </div>
         <div class='w-full portrait:w-full md:w-4/5 2xl:w-4/6 flex justify-center'>
             <Image
                 src={Profile}
                 alt='All the technologies I have worked with'
-                class='animate-fade size-56 md:size-64 portrait:mb-10 2xl:size-96 animate-ease-in animate-duration-[300ms]'
+                class='animate-fade size-44 md:size-64 portrait:mb-10 2xl:size-96 animate-ease-in animate-duration-[300ms]'
                 data-testid="intro-profile-image"
             />
         </div>
