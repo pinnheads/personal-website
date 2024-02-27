@@ -1,5 +1,5 @@
 ---
-import Icon from './Icon.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
     project: {
@@ -19,18 +19,18 @@ const { project } = Astro.props;
 >
     {project.live ? '' : project.github ? '' : ''}
     <div class='flex flex-row items-start justify-between'>
-        <Icon icon='folder' style='fill-da-gray w-12 h-12' />
+        <Icon name='mdi:folder' class='text-da-gray size-8' />
         <div class='flex flex-row items-center space-x-3'>
             {
                 project.github ? (
                     <a
-                        class='font-semibold flex items-start hover:underline underline-offset-2'
+                        class='font-semibold flex items-start'
                         target='_blank'
                         href={project.github}
                     >
                         <Icon
-                            icon='github'
-                            style='ml-1 w-6 h-6 ease-linear duration-500 hover:scale-110 hover:fill-teal'
+                            name='mdi:github'
+                            class='size-8'
                         />
                     </a>
                 ) : (
@@ -39,15 +39,16 @@ const { project } = Astro.props;
             }
             {
                 project.live ? (
+                    ''
+                    
+                ) : (
                     <a
                         class='text-teal flex items-center font-semibold hover:underline underline-offset-2'
                         target='_blank'
                         href={project.live}
                     >
-                        Live
+                        <Icon name="mdi:external-link" class="size-8"/>
                     </a>
-                ) : (
-                    ''
                 )
             }
         </div>

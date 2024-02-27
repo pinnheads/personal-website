@@ -1,7 +1,6 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
-import Icon from "./Icon.astro";
-import logo from '../assets/logo.svg?raw';
+import { Icon } from 'astro-icon/components';
 
 const localsData = Astro.locals;
 const isOn = localsData.isOn;
@@ -13,7 +12,9 @@ const navbarFlag = await isOn('navbarLinks');
     data-testid="navbar"
 >
     <div class="flex space-x-2 items-center">
-        <Fragment set:html={logo} />
+        <a href="/">
+            <Icon name='logo' class="size-12"/>
+        </a>
     </div>
     <div class="flex items-center space-x-2 md:space-x-8">
         

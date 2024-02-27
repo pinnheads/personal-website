@@ -19,11 +19,14 @@
     "@fontsource/poppins": "^5.0.8",
     "aos": "^2.3.4",
     "astro": "^4.4.0",
+    "astro-icon": "^1.1.0",
     "dotenv": "^16.4.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.64",
+    "@iconify-json/teenyicons": "^1.1.9",
     "@playwright/test": "^1.41.1",
     "@types/node": "^20.11.10",
     "autoprefixer": "^10.4.17",

@@ -1,15 +1,15 @@
 ---
-import Icon from "./Icon.astro";
+import { Icon } from 'astro-icon/components';
 ---
 
 <theme-toggle>
     <button class='bg-black dark:bg-white flex p-2 rounded-full' data-testid="theme-button">
         <span class='sr-only'>Dark theme</span>
         <span id='light' class='icon light'>
-            <Icon icon="sun" style='size-5 md:size-6' color="black"/>
+            <Icon name="teenyicons:moon-solid" class='size-5 text-black'/>
         </span>
         <span id='dark' class='icon dark'>
-            <Icon icon="moon" style='size-5 md:size-6' color="white"/>
+            <Icon name="teenyicons:sun-solid" class='size-5 text-white'/>
         </span>
     </button>
 </theme-toggle>

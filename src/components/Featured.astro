@@ -1,5 +1,5 @@
 ---
-import Icon from './Icon.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
     project: {
@@ -53,8 +53,8 @@ const { project } = Astro.props;
                         href={project.github}
                     >
                         <Icon
-                            icon='github'
-                            style='ml-1 w-6 h-6 hover:scale-110 hover:fill-black dark:hover:fill-white ease-linear duration-500'
+                            name='mdi:github'
+                            class="size-8 text-black dark:text-white"
                         />
                     </a>
                 ) : (
@@ -68,7 +68,7 @@ const { project } = Astro.props;
                         target='_blank'
                         href={project.live}
                     >
-                        <Icon icon='arrow' style='ml-1 mt-2 w-6 h-6' />
+                        <Icon name="mdi:link-variant" class="size-4 mr-1"/>
                         Live
                     </a>
                 ) : (
