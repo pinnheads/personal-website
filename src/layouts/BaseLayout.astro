@@ -19,11 +19,10 @@ const { title, description } = Astro.props;
     <head>
         <Head title={title} description={description} />
     </head>
-    <body class='bg-white dark:bg-black overflow-x-hidden'>
+    <body class='bg-white dark:bg-black overflow-x-hidden p-6 py-2 md:p-12'>
         <Navbar />
-        <div class="px-6 py-2 md:p-10">
-            <slot />
-        </div>
+        
+        <slot />
         
         <script>
             import { aosInit } from '../aos';
