@@ -1,7 +1,6 @@
 ---
 import Head from '../components/Head.astro';
 import Navbar from '../components/Navbar.astro';
-import "aos/dist/aos.css"
 
 // Supports weights 100-900
 import '@fontsource-variable/inter';
@@ -25,13 +24,22 @@ const { title, description } = Astro.props;
         <slot />
         
         <script>
-            import { aosInit } from '../aos';
-
-            aosInit();
-            // Add “loaded” class once the document has completely loaded.
             addEventListener('load', () => {
                 document.documentElement.classList.add('loaded')
             });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0');
+                        entry.target.classList.add('animate-fade-up');
+                        entry.target.classList.add('animate-duration-[1200ms]');
+                        entry.target.classList.add('animate-delay-200');
+                    }
+                })
+            })
+            const animateElements = document.querySelectorAll('.opacity-0');
+            animateElements.forEach((el) => observer.observe(el));
         </script>
         <style>
             body {

@@ -8,7 +8,7 @@ const navbarFlag = await isOn('navbarLinks');
 ---
 
 <nav
-    class="flex items-center place-content-center py-4 md:py-0 justify-between md:flex-row text-black dark:text-white"
+    class="z-10 flex items-center place-content-center py-4 md:py-0 justify-between md:flex-row text-black dark:text-white animate-fade animate-duration-1000"
     data-testid="navbar"
 >
     <div class="flex space-x-2 items-center">
@@ -81,7 +81,7 @@ const navbarFlag = await isOn('navbarLinks');
     data-testid="menu"
 >
     <ul
-        class="fixed z-10 bg-white/95 dark:bg-black/80 left-0 right-0 w-full text-center items-center md:flex md:justify-between text-xl md:text-2xl font-semibold space-y-4 md:space-y-0 md:space-x-10"
+        class="fixed z-10 bg-white/95 dark:bg-black/80 left-0 right-0 w-full text-center items-center md:flex md:justify-between text-xl md:text-2xl font-semibold py-10 space-y-4 md:space-y-0 md:space-x-10"
     >
         <li onclick="menuHandler()">
             <a href="#projects" data-testid="sm-link-projects">Projects</a>

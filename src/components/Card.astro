@@ -15,9 +15,8 @@ const { project } = Astro.props;
 ---
 
 <div
-    class='bg-black dark:bg-white group text-white dark:text-black p-4 rounded-md w-full h-full flex flex-col justify-between min-h-72 hover:-translate-y-3 hover:shadow-lg hover:shadow-teal ease-linear duration-300'
+    class='bg-black dark:bg-white group text-white dark:text-black p-4 rounded-md w-full h-full flex flex-col justify-between min-h-72 hover:-translate-y-3 hover:shadow-lg hover:shadow-teal ease-linear duration-300 opacity-0'
 >
-    {project.live ? '' : project.github ? '' : ''}
     <div class='flex flex-row items-start justify-between'>
         <Icon name='mdi:folder' class='text-da-gray size-8' />
         <div class='flex flex-row items-center space-x-3'>
@@ -39,9 +38,6 @@ const { project } = Astro.props;
             }
             {
                 project.live ? (
-                    ''
-                    
-                ) : (
                     <a
                         class='text-teal flex items-center font-semibold hover:underline underline-offset-2'
                         target='_blank'
@@ -49,6 +45,8 @@ const { project } = Astro.props;
                     >
                         <Icon name="mdi:external-link" class="size-8"/>
                     </a>
+                ) : (
+                    ''
                 )
             }
         </div>
