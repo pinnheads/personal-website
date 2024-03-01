@@ -12,6 +12,7 @@ interface Props {
     };
 }
 const { project } = Astro.props;
+const name = project.name.toLowerCase().replaceAll(' ', '');
 ---
 
 <div
@@ -25,6 +26,7 @@ const { project } = Astro.props;
                     <a
                         class='font-semibold flex items-start'
                         target='_blank'
+                        data-testid=`${name}-featured-github`
                         href={project.github}
                     >
                         <Icon
@@ -41,6 +43,7 @@ const { project } = Astro.props;
                     <a
                         class='text-teal flex items-center font-semibold hover:underline underline-offset-2'
                         target='_blank'
+                        data-testid=`${name}-featured-live`
                         href={project.live}
                     >
                         <Icon name="mdi:external-link" class="size-8"/>
@@ -51,11 +54,11 @@ const { project } = Astro.props;
             }
         </div>
     </div>
-    <p class='font-bold text-lg h-1/4 pt-3 capitalize ease-in duration-200 group-hover:text-teal'>
+    <p class='font-bold text-lg h-1/4 pt-3 capitalize ease-in duration-200 group-hover:text-teal' data-testid=`${name}-project-name`>
         {project.name}
     </p>
-    <p class='items-start h-2/4 text-justify text-sm'>{project.description}</p>
-    <div class='flex flex-wrap h-1/4 text-lg-gray dark:text-da-gray items-end'>
+    <p class='items-start h-2/4 text-justify text-sm' data-testid=`${name}-project-description`>{project.description}</p>
+    <div class='flex flex-wrap h-1/4 text-lg-gray dark:text-da-gray items-end' data-testid=`${name}-project-skills`>
         {
             project.highlights.map((name) => (
                 <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105'>

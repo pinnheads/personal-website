@@ -12,6 +12,7 @@ interface Props {
     };
 }
 const { project } = Astro.props;
+const name = project.name.toLowerCase().replaceAll(' ', '');
 ---
 
 <div class='my-2 flex flex-col portrait:flex-col lg:flex-row items-center space-y-8 lg:space-x-12 portrait:space-x-0'>
@@ -23,18 +24,20 @@ const { project } = Astro.props;
             src='src/assets/site-preview.png'
             alt='Site card'
             class='rounded-sm w-full group-hover:scale-105 ease-linear duration-500 portrait:max-w-screen-sm md:max-w-screen-md grayscale group-hover:grayscale-0'
+            data-testid=`${name}-featured-image`
         />
     </div>
     <div class='flex flex-col text-da-gray dark:text-lg-gray space-y-4 h-full w-full'>
         <p
             class='flex items-center font-semibold text-black dark:text-white text-lg md:text-2xl after:content-["Featured"] after:text-teal after:font-bold after:bg-teal/25 after:border-2 after:border-teal after:rounded-full after:px-2 after:mx-2 after:text-xs after:animate-fade-up after:animate-delay-750'
+            data-testid=`${name}-featured-name`
         >
             {project.name}
         </p>
-        <p class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify'>
+        <p class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify' data-testid=`${name}-featured-description`>
             {project.description}
         </p>
-        <div class='flex flex-wrap text-lg-gray dark:text-da-gray justify-start'>
+        <div class='flex flex-wrap text-lg-gray dark:text-da-gray justify-start' data-testid=`${name}-featured-skills`>
             {
                 project.highlights.map((name) => (
                     <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105'>
@@ -49,6 +52,7 @@ const { project } = Astro.props;
                     <a
                         class='font-semibold flex items-start hover:underline underline-offset-2'
                         target='_blank'
+                        data-testid=`${name}-featured-github`
                         href={project.github}
                     >
                         <Icon
@@ -65,6 +69,7 @@ const { project } = Astro.props;
                     <a
                         class='text-teal flex items-center font-semibold hover:underline underline-offset-2'
                         target='_blank'
+                        data-testid=`${name}-featured-live`
                         href={project.live}
                     >
                         <Icon name="mdi:link-variant" class="size-6 mr-1"/>
