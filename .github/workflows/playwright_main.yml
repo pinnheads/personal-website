@@ -19,7 +19,7 @@ jobs:
       run: npx playwright test --grep @smoke
       env:
         ENV: preview
-        URL: https://preview.utsavdeep.com
+        URL: http://localhost:4321
     - uses: actions/upload-artifact@v3
       if: always()
       with:
