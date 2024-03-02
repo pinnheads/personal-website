@@ -29,9 +29,9 @@ const data: Project[] = await getData('projects');
         }
     </div>
     <div class="flex w-full justify-center my-6 md:my-10 opacity-0" data-testid="projects-other">
-        <p class="flex justify-between w-full items-center text-da-gray dark:text-lg-gray font-medium text-lg before:content-[''] before:w-1/12 before:md:w-4/12 before:h-[1px] before:bg-lg-gray before:mr-2 after:content-[''] after:w-1/12 after:md:w-4/12 after:h-[1px] after:bg-lg-gray after:mr-2">Other noteworthy projects</p>
+        <p class="flex justify-between w-full items-center text-da-gray dark:text-lg-gray font-medium text-lg before:content-[''] before:w-1/12 before:md:w-3/12 before:lg:w-3/12 before:h-[1px] before:bg-lg-gray before:mr-2 after:content-[''] after:w-1/12 after:md:w-3/12 after:lg:w-4/12 after:h-[1px] after:bg-lg-gray after:mr-2">Other noteworthy projects</p>
     </div>
-    <div class="my-2 grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4 items-center justify-evenly">
+    <div class="my-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-4 items-center justify-evenly">
         {
             data.map((project: Project) => (
                 project.isFeatured ? 

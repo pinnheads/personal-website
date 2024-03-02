@@ -12,7 +12,7 @@ interface Props {
     };
 }
 const { project } = Astro.props;
-const name = project.name.toLowerCase().replaceAll(' ', '');
+const name = project.name.toLowerCase().replaceAll(' ', '_');
 ---
 
 <div
@@ -58,11 +58,11 @@ const name = project.name.toLowerCase().replaceAll(' ', '');
         {project.name}
     </p>
     <p class='items-start h-2/4 text-justify text-sm' data-testid=`${name}-project-description`>{project.description}</p>
-    <div class='flex flex-wrap h-1/4 text-lg-gray dark:text-da-gray items-end' data-testid=`${name}-project-skills`>
+    <div class='flex flex-wrap h-1/4 text-lg-gray dark:text-da-gray items-end' >
         {
-            project.highlights.map((name) => (
-                <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105'>
-                    {name}
+            project.highlights.map((skill) => (
+                <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105' data-testid=`${name}-project-${skill}`>
+                    {skill}
                 </p>
             ))
         }
