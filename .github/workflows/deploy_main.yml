@@ -24,7 +24,7 @@ jobs:
         run: npx playwright test --grep @regression
         env:
           ENV: preview
-          URL: https://preview.utsavdeep.com
+          URL: http://localhost:4321
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -42,3 +42,8 @@ jobs:
           directory: 'dist' # e.g. 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
+      - name: Run Playwright tests
+        run: npx playwright test --grep @regression
+        env:
+          ENV: prod
+          URL: http://utsavdeep.com
