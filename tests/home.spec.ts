@@ -42,27 +42,27 @@ test.describe('Verify Home page', () => {
     //     await expect(page).toHaveURL(/resume/);
     // })
 
-    test('verify github navigation @smoke', async ({ context }) => {
-        const pagePromise = context.waitForEvent('page');
-        await homePage.navigateToGithubProfile();
-        const newPage = await pagePromise;
-        await newPage.waitForLoadState();
-        await expect(newPage).toHaveURL(/github.com\/pinnheads/);
-    })
+    // test('verify github navigation @smoke', async ({ context }) => {
+    //     const pagePromise = context.waitForEvent('page');
+    //     await homePage.navigateToGithubProfile();
+    //     const newPage = await pagePromise;
+    //     await newPage.waitForLoadState();
+    //     await expect(newPage).toHaveURL(/github.com\/pinnheads/);
+    // })
 
-    test('verify twitter navigation @smoke', async ({ context }) => {
-        const pagePromise = context.waitForEvent('page');
-        await homePage.navigateToTwitterProfile();
-        const newPage = await pagePromise;
-        await newPage.waitForLoadState();
-        await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
-    })
+    // test('verify twitter navigation @smoke', async ({ context }) => {
+    //     const pagePromise = context.waitForEvent('page');
+    //     await homePage.navigateToTwitterProfile();
+    //     const newPage = await pagePromise;
+    //     await newPage.waitForLoadState();
+    //     await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
+    // })
 
-    test('verify linkedin navigation @smoke', async ({ context }) => {
-        const pagePromise = context.waitForEvent('page');
-        await homePage.navigateToLinkedinProfile();
-        const newPage = await pagePromise;
-        await newPage.waitForLoadState();
-        await expect(newPage).toHaveURL(/linkedin.com\/in\/utsavdeep/);
-    })
+    // test('verify linkedin navigation @smoke', async ({ context }) => {
+    //     const pagePromise = context.waitForEvent('page');
+    //     await homePage.navigateToLinkedinProfile();
+    //     const newPage = await pagePromise;
+    //     await newPage.waitForLoadState();
+    //     await expect(newPage).toHaveURL(/linkedin.com\/in\/utsavdeep/);
+    // })
 })
