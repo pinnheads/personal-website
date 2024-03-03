@@ -2,13 +2,13 @@
     "basics": {
         "name": "Utsav Deep",
         "label": "Test Automation Specialist",
-        "image": "",
+        "image": "https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png",
         "email": "mail@utsavdeep.com",
         "phone": "+91-8867834645",
         "url": "https://utsavdeep.com",
         "summary": "I'm a Test Automation Engineer with over 2.5 years of experience in setting up robust test automation frameworks and writing performant, reliable tests for UI testing, API testing and Mobile apps testing",
         "location": {
-            "address": "Hebbal",
+            "address": "Ashwathnagar, Hebbal",
             "postalCode": "560094",
             "city": "Bengaluru",
             "countryCode": "IN",
@@ -205,7 +205,7 @@
             "name": "Personal Portfolio Website",
             "image": "portfolio_preview.png",
             "isFeatured": true,
-            "description": "My personal portfolio website is a website built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
+            "description": "My personal portfolio website is built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
             "highlights": [
                 "Astro",
                 "Typescript",
