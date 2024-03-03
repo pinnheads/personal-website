@@ -42,3 +42,6 @@ jobs:
           directory: 'dist' # e.g. 'dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: preview
+        env:
+          ENV: production
+          URL: https://utsavdeep.com
