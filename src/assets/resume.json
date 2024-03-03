@@ -1,14 +1,14 @@
 {
     "basics": {
         "name": "Utsav Deep",
-        "label": "Test Engineer",
+        "label": "Test Automation Specialist",
         "image": "",
         "email": "mail@utsavdeep.com",
         "phone": "+91-8867834645",
         "url": "https://utsavdeep.com",
-        "summary": "Test Engineer with over 2.5 years of experience specializing in automation testing. Proficient in a variety of modern automation tools and programming languages including JAVA, Selenium, Cucumber, Appium, and other test automation tools. Demonstrated ability to design and improve test automation frameworks and drive efficient, reliable results.",
+        "summary": "I'm a Test Automation Engineer with over 2.5 years of experience in setting up robust test automation frameworks and writing performant, reliable tests for UI testing, API testing and Mobile apps testing",
         "location": {
-            "address": "2712 Broadway St",
+            "address": "Hebbal",
             "postalCode": "560094",
             "city": "Bengaluru",
             "countryCode": "IN",
@@ -18,7 +18,7 @@
             {
                 "network": "Twitter",
                 "username": "utsavdeep01",
-                "url": "https://twitter.com/utsavdeep01"
+                "url": "https://x.com/utsavdeep01"
             },
             {
                 "network": "Github",
@@ -29,7 +29,13 @@
                 "network": "LinkedIn",
                 "username": "Utsav Deep",
                 "url": "https://www.linkedin.com/in/utsavdeep"
+            },
+            {
+                "network": "Email",
+                "username": "Utsav Deep",
+                "url": "mailto:mail@utsavdeep.com"
             }
+
         ]
     },
     "work": [
@@ -38,7 +44,7 @@
             "position": "Test Engineer",
             "url": "https://igsindia.net",
             "startDate": "2022-01-01",
-            "endDate": "2024-02-28",
+            "endDate": "2024-02-29",
             "summary": "As a Test Engineer at IGS, I automated end-to-end tests using frameworks like SerenityBDD, Selenium, and Cucumber. I used NodeJS for backend verification and component level test automation. I improved testing efficiency with a mobile device testing framework using Appium and executed API tests for two online payment apps' proof-of-concept.",
             "highlights": [
                 "Promoted from Test Associate (1 year and 11 months) to Test Engineer due to demonstrated technical proficiency, alignment with company visions, and commitment to quality assurance",
@@ -197,6 +203,7 @@
     "projects": [
         {
             "name": "Personal Portfolio Website",
+            "image": "portfolio_preview.png",
             "isFeatured": true,
             "description": "My personal portfolio website is a website built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
             "highlights": [
@@ -215,6 +222,7 @@
         },
         {
             "name": "Latex Resume",
+            "image": "resume_preview.png",
             "isFeatured": false,
             "description": "My resume written in LaTeX, accompanied by a JSON file that facilitates seamless data updates on my portfolio website.",
             "highlights": [
@@ -227,6 +235,7 @@
         },
         {
             "name": "Drumkit Emulator",
+            "image": "drumkit_preview.png",
             "isFeatured": false,
             "description": "A simple web drumkit emulator written in plain HTMl, CSS and Javascript",
             "highlights": [
@@ -235,7 +244,7 @@
                 "Javascript"
             ],
             "github": "https://github.com/pinnheads/drumkit.github.io",
-            "live": ""
+            "live": "https://drumkit.utsavdeep.com"
         }
     ]
 }
