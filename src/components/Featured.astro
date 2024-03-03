@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
+import SitePreview from '../assets/site-preview.png';
+import { Image } from 'astro:assets';
 
 interface Props {
     project: {
@@ -20,8 +22,8 @@ const name = project.name.toLowerCase().replaceAll(' ', '_');
         class='flex flex-col md:flex-row items-center h-full relative before:absolute before:bottom-[-5%] b before:bg-teal dark:before:bg-teal before:right-[-5%] before:w-full before:h-full before:content-[""] md:hover:before:bottom-[-8%] md:hover:before:right-[-8%] md:hover:before:grayscale before:ease-linear before:duration-500 group'
     >
         <!-- TODO: Make this dynamic with the resume repo -->
-        <img
-            src='src/assets/site-preview.png'
+        <Image
+            src={SitePreview}
             alt='Site card'
             class='rounded-sm w-full group-hover:scale-105 ease-linear duration-500 portrait:max-w-screen-sm md:max-w-screen-md grayscale group-hover:grayscale-0'
             data-testid=`${name}-featured-image`
