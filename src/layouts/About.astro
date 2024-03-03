@@ -2,8 +2,7 @@
 import { Image } from 'astro:assets';
 import Socials from '../components/Socials.astro';
 import Button from '../components/Button.astro';
-import SkillsDark from '../assets/skills-bg-dark.png';
-import SkillsLight from '../assets/skills-bg-light.png';
+import Skills from '../components/Skills.astro';
 import Resume from '../assets/resume.pdf';
 import Profile from '../assets/profile-circle.webp';
 
@@ -11,52 +10,40 @@ const { isOn, getData } = Astro.locals;
 const data = await getData('basics');
 ---
 
-<section id='about'>
-    <div class='flex flex-col portrait:flex-col-reverse md:flex-row justify-between w-full h-full py-6 md:pt-24'>
-        <div class='w-full font-extrabold space-y-2 md:space-y-8 py-4 animate-fade-right animate-duration-[1000ms]'>
-            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl' data-testid="intro-name">
-                <span class='text-da-gray dark:text-lg-gray'>Hello! I'm</span>
+<section class="h-svh" id='about'>
+    <Skills />
+    <div class='flex flex-col portrait:flex-col-reverse md:flex-row justify-evenly portrait:justify-evenly md:justify-between w-full h-5/6 items-center'>
+        <div class='w-full font-extrabold space-y-2 md:space-y-4 py-4 opacity-0'>
+            <span class='text-teal'>Hello! My name is</span>
+            <p class='text-black dark:text-white text-4xl md:text-5xl 3xl:text-6xl' data-testid="intro-name">
                 {data.name}
             </p>
-            <p class='text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl' data-testid="intro-profession">
-                <span class='text-da-gray dark:text-lg-gray'>a</span>
-                {data.label}
+            <p class='text-da-gray dark:text-lg-gray text-4xl md:text-5xl 3xl:text-6xl' data-testid="intro-profession">
+                a {data.label}
             </p>
             <p class='text-da-gray text-sm md:text-base dark:text-lg-gray font-medium text-justify md:text-left' data-testid="intro-summary">
                 {data.summary}
             </p>
             <div class='space-y-2 md:space-y-8'>
-                <Socials />
                 <div
-                    class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-evenly md:justify-start md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
+                class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-start space-x-5 md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
                 >
+                <Button btnText='Resume' href={Resume} testid='resume-btn'/>
                 <!-- TODO: Update this once Contact Section is Complete -->
-                    {
-                        await isOn('navbarLinks') ? <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/> : <Button btnText='Contact' style='text-teal' href='mailto:utsavdeep01@gmail.com' testid='contact-btn'/>
-                    }
-                    <Button btnText='Resume' href={Resume} testid='resume-btn'/>
+                {
+                    await isOn('navbarLinks') ? <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn'/> : <Button btnText='Contact' style='text-teal' href='mailto:utsavdeep01@gmail.com' testid='contact-btn'/>
+                }
                 </div>
+                <Socials />
             </div>
         </div>
-        <div class='w-full portrait:w-full md:w-4/5 2xl:w-4/6 flex justify-center'>
+        <div class='w-full portrait:w-full md:w-4/5 2xl:w-4/6 flex justify-center portrait:justify-center md:justify-end'>
             <Image
                 src={Profile}
                 alt='All the technologies I have worked with'
-                class='animate-fade size-56 md:size-64 portrait:mb-10 2xl:size-96 animate-ease-in animate-duration-[300ms]'
+                class='opacity-0 size-40 md:size-64 2xl:size-96'
                 data-testid="intro-profile-image"
             />
         </div>
     </div>
-    <Image
-        src={SkillsLight}
-        alt='All the technologies I have worked with'
-        class='dark:invisible visible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-5/12 portrait:hidden 2xl:w-auto'
-        data-testid="skills-image-light"
-    />
-    <Image
-        src={SkillsDark}
-        alt='All the technologies I have worked with'
-        class='dark:visible invisible absolute bottom-0 right-0 z-[-1] animate-fade animate-ease-in animate-duration-[300ms] hidden md:block md:w-5/12 portrait:hidden 2xl:w-auto'
-        data-testid="skills-image-dark"
-    />
 </section>
