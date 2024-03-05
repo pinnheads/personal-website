@@ -22,11 +22,8 @@ const date = (stringDate: string) => {
 };
 ---
 
-<section id='work' class='h-full space-y-6'>
-    <h1
-        class='opacity-0 text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl font-bold'
-        data-testid='work-heading'
-    >
+<section id='work' class='h-full space-y-6 py-10'>
+    <h1 class='opacity-0 text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl font-bold' data-testid='work-heading'>
         Experience
     </h1>
     <p class='opacity-0 text-da-gray dark:text-lg-gray mt-2 mb-4' data-testid='work-subheading'>
@@ -44,7 +41,7 @@ const date = (stringDate: string) => {
                     </time>
                     <h3 class='text-xl 3xl:text-2xl font-semibold text-teal mt-4 animate-delay-200 opcaity-0'>
                         {work.position} @{' '}
-                        <a target='_blank' href={work.url}>
+                        <a target='_blank' class="underline underline-offset-4" href={work.url}>
                             {work.name}
                         </a>
                     </h3>
