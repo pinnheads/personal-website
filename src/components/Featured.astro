@@ -31,7 +31,7 @@ images.forEach((image) => {
 })
 
 ---
-<div class='my-2 flex flex-col portrait:flex-col lg:flex-row items-center space-y-8 lg:space-x-12 portrait:space-x-0'>
+<div class='my-2 flex flex-col portrait:flex-col lg:flex-row items-center space-y-8 lg:space-x-12 portrait:space-x-0' data-testid="featured-project">
     <div
         class='flex flex-col md:flex-row items-center h-full relative before:absolute before:bottom-[-5%] b before:bg-teal dark:before:bg-teal before:right-[-5%] before:w-full before:h-full before:content-[""] md:hover:before:bottom-[-8%] md:hover:before:right-[-8%] md:hover:before:grayscale before:ease-linear before:duration-500 group'
     >
@@ -40,23 +40,23 @@ images.forEach((image) => {
             src={previewImage}
             alt='Site card'
             class='rounded-sm w-full group-hover:scale-105 ease-linear max-h-96 duration-500 portrait:max-w-screen-sm md:max-w-screen-md grayscale group-hover:grayscale-0'
-            data-testid=`${name}-featured-image`
+            data-testid='featured-project-image'
         />
     </div>
     <div class='flex flex-col text-da-gray dark:text-lg-gray space-y-4 h-full w-full'>
         <p
             class='flex items-center font-semibold text-black dark:text-white text-lg md:text-2xl after:content-["Featured"] after:text-teal after:font-bold after:bg-teal/25 after:border-2 after:border-teal after:rounded-full after:px-2 after:mx-2 after:text-xs after:animate-fade-up after:animate-delay-750'
-            data-testid=`${name}-featured-name`
+            data-testid='featured-project-name'
         >
             {project.name}
         </p>
-        <p class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify' data-testid=`${name}-featured-description`>
+        <p class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify' data-testid='featured-project-description'>
             {project.description}
         </p>
-        <div class='flex flex-wrap text-lg-gray dark:text-da-gray justify-start'>
+        <div class='flex flex-wrap text-lg-gray dark:text-da-gray justify-start' data-testid='featured-project-skills'>
             {
                 project.highlights.map((skill) => (
-                    <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105' data-testid=`${name}-featured-${skill}`>
+                    <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105' >
                         {skill}
                     </p>
                 ))
@@ -68,7 +68,7 @@ images.forEach((image) => {
                     <a
                         class='font-semibold flex items-start hover:underline underline-offset-2'
                         target='_blank'
-                        data-testid=`${name}-featured-github`
+                        data-testid='featured-project-github'
                         href={project.github}
                     >
                         <Icon
@@ -87,7 +87,7 @@ images.forEach((image) => {
                         target='_blank'
                         href={project.live}
                     >
-                        <Icon name="mdi:link-variant" class="size-6 mr-1" data-testid=`${name}-featured-live`/>
+                        <Icon name="mdi:link-variant" class="size-6 mr-1" data-testid='featured-project-live'/>
                     </a>
                 ) : (
                     ''
