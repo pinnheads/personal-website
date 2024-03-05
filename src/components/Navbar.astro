@@ -57,12 +57,12 @@ const navbarFlag = await isOn('navbarLinks');
                         Projects
                     </a>
                 </li>
-            { navbarFlag ? (
                 <li>
-                    <a href="#experience" data-testid="lg-link-experience">
+                    <a href="#work" data-testid="lg-link-experience">
                         Experience
                     </a>
                 </li>
+            { navbarFlag ? (
                 <li>
                     <a href="#contact" data-testid="lg-link-contact">
                         Contact
@@ -86,11 +86,11 @@ const navbarFlag = await isOn('navbarLinks');
         <li onclick="menuHandler()">
             <a href="#projects" data-testid="sm-link-projects">Projects</a>
         </li>
-    { navbarFlag ? (
         <li onclick="menuHandler()">
-            <a href="#experience" data-testid="sm-link-experience">Experience</a
+            <a href="#work" data-testid="sm-link-experience">Experience</a
             >
         </li>
+    { navbarFlag ? (
         <li onclick="menuHandler()">
             <a href="#contact" data-testid="sm-link-contact">Contact</a>
         </li>

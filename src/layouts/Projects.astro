@@ -16,7 +16,7 @@ const { getData } = Astro.locals;
 const data: Project[] = await getData('projects');
 ---
 
-<section id='projects' class="h-svh space-y-6">
+<section id='projects' class="h-full mb-10 space-y-6">
     <h1 class='opacity-0 text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl font-bold' data-testid="projects-title">
         Projects
     </h1>
