@@ -21,9 +21,8 @@ interface ProjectImages {
 }
 
 const { project } = Astro.props;
-const name = project.name.toLowerCase().replaceAll(' ', '_');
 const images: ProjectImages[] = await Astro.glob('../assets/*.png');
-let previewImage: ImageMetadata = SitePreview;
+let previewImage: ImageMetadata;
 images.forEach((image) => {
     if(image.default.src.includes(project.image)) {
         previewImage = image.default
