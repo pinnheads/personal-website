@@ -204,8 +204,8 @@
         {
             "name": "Personal Portfolio Website",
             "image": "portfolio_preview.png",
-            "isFeatured": true,
-            "description": "My personal portfolio website is built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
+            "isFeatured": false,
+            "description": "My personal portfolio website features seamless automatic resume updates and providing a dynamic showcase of my professional journey.",
             "highlights": [
                 "Astro",
                 "Typescript",
@@ -236,7 +236,7 @@
         {
             "name": "Drumkit Emulator",
             "image": "drumkit_preview.png",
-            "isFeatured": false,
+            "isFeatured": true,
             "description": "A simple web drumkit emulator written in plain HTMl, CSS and Javascript",
             "highlights": [
                 "HTML",
