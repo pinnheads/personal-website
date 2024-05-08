@@ -7,7 +7,7 @@ import SitePreview from '../assets/site-preview.png';
 interface Props {
     project: {
         name: string;
-        image: string
+        image: string;
         isFeatured: boolean;
         description: string;
         highlights: [string];
@@ -21,23 +21,26 @@ interface ProjectImages {
 }
 
 const { project } = Astro.props;
-const name = project.name.toLowerCase().replaceAll(' ', '_');
-const images: ProjectImages[] = await Astro.glob('../assets/*.png');
-let previewImage: ImageMetadata = SitePreview;
-images.forEach((image) => {
-    if(image.default.src.includes(project.image)) {
-        previewImage = image.default
-    }
-})
-
+console.log(project);
+// const images: ProjectImages[] = await Astro.glob('../../public/*.png');
+// let previewImage: ImageMetadata;
+// images.forEach((image) => {
+//     if (image.default.src.includes(project.image)) {
+//         previewImage = image.default;
+//     }
+// });
 ---
-<div class='my-2 flex flex-col portrait:flex-col lg:flex-row items-center space-y-8 lg:space-x-12 portrait:space-x-0' data-testid="featured-project">
+
+<div
+    class='my-2 flex flex-col portrait:flex-col lg:flex-row items-center space-y-8 lg:space-x-12 portrait:space-x-0'
+    data-testid='featured-project'
+>
     <div
         class='flex flex-col md:flex-row items-center h-full relative before:absolute before:bottom-[-5%] b before:bg-teal dark:before:bg-teal before:right-[-5%] before:w-full before:h-full before:content-[""] md:hover:before:bottom-[-8%] md:hover:before:right-[-8%] md:hover:before:grayscale before:ease-linear before:duration-500 group'
     >
         <!-- TODO: Make this dynamic with the resume repo -->
-        <Image
-            src={previewImage}
+        <img
+            src={project.image}
             alt='Site card'
             class='rounded-sm w-full group-hover:scale-105 ease-linear max-h-96 duration-500 portrait:max-w-screen-sm md:max-w-screen-md grayscale group-hover:grayscale-0'
             data-testid='featured-project-image'
@@ -50,13 +53,16 @@ images.forEach((image) => {
         >
             {project.name}
         </p>
-        <p class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify' data-testid='featured-project-description'>
+        <p
+            class='font-medium text-da-gray dark:text-lg-gray md:text-lg text-justify'
+            data-testid='featured-project-description'
+        >
             {project.description}
         </p>
         <div class='flex flex-wrap text-lg-gray dark:text-da-gray justify-start' data-testid='featured-project-skills'>
             {
                 project.highlights.map((skill) => (
-                    <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105' >
+                    <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105'>
                         {skill}
                     </p>
                 ))
@@ -71,10 +77,7 @@ images.forEach((image) => {
                         data-testid='featured-project-github'
                         href={project.github}
                     >
-                        <Icon
-                            name='mdi:github'
-                            class="size-6 text-black dark:text-white"
-                        />
+                        <Icon name='mdi:github' class='size-6 text-black dark:text-white' />
                     </a>
                 ) : (
                     ''
@@ -87,7 +90,7 @@ images.forEach((image) => {
                         target='_blank'
                         href={project.live}
                     >
-                        <Icon name="mdi:link-variant" class="size-6 mr-1" data-testid='featured-project-live'/>
+                        <Icon name='mdi:link-variant' class='size-6 mr-1' data-testid='featured-project-live' />
                     </a>
                 ) : (
                     ''
