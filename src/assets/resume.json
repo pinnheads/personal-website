@@ -1,18 +1,18 @@
 {
     "basics": {
         "name": "Utsav Deep",
-        "label": "Test Automation Specialist",
+        "label": "Master's Student at Hochschule Fulda",
         "image": "https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png",
         "email": "mail@utsavdeep.com",
-        "phone": "+91-8867834645",
+        "phone": "+49 - 163 9803817",
         "url": "https://utsavdeep.com",
-        "summary": "I'm a Test Automation Engineer with over 2.5 years of experience in setting up robust test automation frameworks and writing performant, reliable tests for UI testing, API testing and Mobile apps testing",
+        "summary": "Greetings 👋! I'm Utsav, a Master's student in Global Software Development at the University of Applied Sciences Fulda, Germany. With 3 years of experience in Test Automation, I'm now venturing into Software Development. For more details, check out my resume linked below. Feel free to reach out for a chat anytime!",
         "location": {
-            "address": "Ashwathnagar, Hebbal",
-            "postalCode": "560094",
-            "city": "Bengaluru",
-            "countryCode": "IN",
-            "region": "Karnataka"
+            "address": "Am Kleegarten, Fulda",
+            "postalCode": "360043",
+            "city": "Fulda",
+            "countryCode": "DE",
+            "region": "Hesse"
         },
         "profiles": [
             {
