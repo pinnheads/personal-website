@@ -1,8 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-import SitePreview from '../assets/site-preview.png';
 
 interface Props {
     project: {
@@ -15,20 +12,9 @@ interface Props {
         live: string;
     };
 }
-
-interface ProjectImages {
-    default: ImageMetadata;
-}
-
 const { project } = Astro.props;
-console.log(project);
-// const images: ProjectImages[] = await Astro.glob('../../public/*.png');
-// let previewImage: ImageMetadata;
-// images.forEach((image) => {
-//     if (image.default.src.includes(project.image)) {
-//         previewImage = image.default;
-//     }
-// });
+
+const projectImage = project.image ? project.image : '/site-preview.png';
 ---
 
 <div
@@ -40,7 +26,7 @@ console.log(project);
     >
         <!-- TODO: Make this dynamic with the resume repo -->
         <img
-            src={project.image}
+            src={projectImage}
             alt='Site card'
             class='rounded-sm w-full group-hover:scale-105 ease-linear max-h-96 duration-500 portrait:max-w-screen-sm md:max-w-screen-md grayscale group-hover:grayscale-0'
             data-testid='featured-project-image'
