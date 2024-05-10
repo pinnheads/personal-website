@@ -18,13 +18,12 @@ const projectImage = project.image ? project.image : '/site-preview.png';
 ---
 
 <div
-    class='my-2 flex flex-col portrait:flex-col lg:flex-row items-center space-y-8 lg:space-x-12 portrait:space-x-0'
+    class='my-2 flex flex-col portrait:flex-col lg:flex-row space-y-8 lg:space-x-12 portrait:space-x-0'
     data-testid='featured-project'
 >
     <div
         class='flex flex-col md:flex-row items-center h-full relative before:absolute before:bottom-[-5%] b before:bg-teal dark:before:bg-teal before:right-[-5%] before:w-full before:h-full before:content-[""] md:hover:before:bottom-[-8%] md:hover:before:right-[-8%] md:hover:before:grayscale before:ease-linear before:duration-500 group'
     >
-        <!-- TODO: Make this dynamic with the resume repo -->
         <img
             src={projectImage}
             alt='Site card'
