@@ -1,24 +1,24 @@
 {
     "basics": {
         "name": "Utsav Deep",
-        "label": "Test Engineer",
-        "image": "",
+        "label": "Master's Student at Hochschule Fulda",
+        "image": "https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png",
         "email": "mail@utsavdeep.com",
-        "phone": "+91-8867834645",
+        "phone": "+49 - 163 9803817",
         "url": "https://utsavdeep.com",
-        "summary": "Test Engineer with over 2.5 years of experience specializing in automation testing. Proficient in a variety of modern automation tools and programming languages including JAVA, Selenium, Cucumber, Appium, and other test automation tools. Demonstrated ability to design and improve test automation frameworks and drive efficient, reliable results.",
+        "summary": "Greetings 👋! I'm Utsav, a Master's student in Global Software Development at the University of Applied Sciences Fulda, Germany. With 3 years of experience in Test Automation, I'm now venturing into Software Development. For more details, check out my resume linked below. Feel free to reach out for a chat anytime!",
         "location": {
-            "address": "2712 Broadway St",
-            "postalCode": "560094",
-            "city": "Bengaluru",
-            "countryCode": "IN",
-            "region": "Karnataka"
+            "address": "Am Kleegarten, Fulda",
+            "postalCode": "360043",
+            "city": "Fulda",
+            "countryCode": "DE",
+            "region": "Hesse"
         },
         "profiles": [
             {
                 "network": "Twitter",
                 "username": "utsavdeep01",
-                "url": "https://twitter.com/utsavdeep01"
+                "url": "https://x.com/utsavdeep01"
             },
             {
                 "network": "Github",
@@ -29,7 +29,13 @@
                 "network": "LinkedIn",
                 "username": "Utsav Deep",
                 "url": "https://www.linkedin.com/in/utsavdeep"
+            },
+            {
+                "network": "Email",
+                "username": "Utsav Deep",
+                "url": "mailto:mail@utsavdeep.com"
             }
+
         ]
     },
     "work": [
@@ -38,7 +44,7 @@
             "position": "Test Engineer",
             "url": "https://igsindia.net",
             "startDate": "2022-01-01",
-            "endDate": "2024-02-28",
+            "endDate": "2024-02-29",
             "summary": "As a Test Engineer at IGS, I automated end-to-end tests using frameworks like SerenityBDD, Selenium, and Cucumber. I used NodeJS for backend verification and component level test automation. I improved testing efficiency with a mobile device testing framework using Appium and executed API tests for two online payment apps' proof-of-concept.",
             "highlights": [
                 "Promoted from Test Associate (1 year and 11 months) to Test Engineer due to demonstrated technical proficiency, alignment with company visions, and commitment to quality assurance",
@@ -197,8 +203,9 @@
     "projects": [
         {
             "name": "Personal Portfolio Website",
-            "isFeatured": true,
-            "description": "My personal portfolio website is a website built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
+            "image": "portfolio_preview.png",
+            "isFeatured": false,
+            "description": "My personal portfolio website features seamless automatic resume updates and providing a dynamic showcase of my professional journey.",
             "highlights": [
                 "Astro",
                 "Typescript",
@@ -215,6 +222,7 @@
         },
         {
             "name": "Latex Resume",
+            "image": "resume_preview.png",
             "isFeatured": false,
             "description": "My resume written in LaTeX, accompanied by a JSON file that facilitates seamless data updates on my portfolio website.",
             "highlights": [
@@ -227,7 +235,8 @@
         },
         {
             "name": "Drumkit Emulator",
-            "isFeatured": false,
+            "image": "drumkit_preview.png",
+            "isFeatured": true,
             "description": "A simple web drumkit emulator written in plain HTMl, CSS and Javascript",
             "highlights": [
                 "HTML",
@@ -235,7 +244,7 @@
                 "Javascript"
             ],
             "github": "https://github.com/pinnheads/drumkit.github.io",
-            "live": ""
+            "live": "https://drumkit.utsavdeep.com"
         }
     ]
 }

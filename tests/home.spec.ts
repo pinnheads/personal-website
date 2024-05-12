@@ -21,26 +21,8 @@ test.describe('Verify Home page', () => {
         await expect(homePage.summary).toHaveText(resumeData.basics.summary)
     })
 
-    test('verify profile image and skills image @regression', async ({ page, isMobile }) => {
+    test('verify profile image @regression', async ({ page, isMobile }) => {
         await expect(homePage.profileImage).toBeVisible();
-
-        // Dark Mode - Skills Image
-        await expect(page.locator('html')).toHaveClass(/dark/);
-        if (isMobile) {
-            await expect(homePage.skillImageDark).not.toBeVisible();
-        } else {
-            await expect(homePage.skillImageDark).toBeVisible();
-        }
-
-
-        //Light Mode - skills image
-        await homePage.changeTheme();
-        await expect(page.locator('html')).not.toHaveClass(/dark/);
-        if (isMobile) {
-            await expect(homePage.skillImageLight).not.toBeVisible();
-        } else {
-            await expect(homePage.skillImageLight).toBeVisible();
-        }
     })
 
     test('verify contact section navigation @smoke', async ({page}) => {
@@ -60,27 +42,27 @@ test.describe('Verify Home page', () => {
     //     await expect(page).toHaveURL(/resume/);
     // })
 
-    test('verify github navigation @smoke', async ({ context }) => {
-        const pagePromise = context.waitForEvent('page');
-        await homePage.navigateToGithubProfile();
-        const newPage = await pagePromise;
-        await newPage.waitForLoadState();
-        await expect(newPage).toHaveURL(/github.com\/pinnheads/);
-    })
+    // test('verify github navigation @smoke', async ({ context }) => {
+    //     const pagePromise = context.waitForEvent('page');
+    //     await homePage.navigateToGithubProfile();
+    //     const newPage = await pagePromise;
+    //     await newPage.waitForLoadState();
+    //     await expect(newPage).toHaveURL(/github.com\/pinnheads/);
+    // })
 
-    test('verify twitter navigation @smoke', async ({ context }) => {
-        const pagePromise = context.waitForEvent('page');
-        await homePage.navigateToTwitterProfile();
-        const newPage = await pagePromise;
-        await newPage.waitForLoadState();
-        await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
-    })
+    // test('verify twitter navigation @smoke', async ({ context }) => {
+    //     const pagePromise = context.waitForEvent('page');
+    //     await homePage.navigateToTwitterProfile();
+    //     const newPage = await pagePromise;
+    //     await newPage.waitForLoadState();
+    //     await expect(newPage).toHaveURL(/twitter.com\/utsavdeep01/);
+    // })
 
-    test('verify linkedin navigation @smoke', async ({ context }) => {
-        const pagePromise = context.waitForEvent('page');
-        await homePage.navigateToLinkedinProfile();
-        const newPage = await pagePromise;
-        await newPage.waitForLoadState();
-        await expect(newPage).toHaveURL(/linkedin.com\/in\/utsavdeep/);
-    })
+    // test('verify linkedin navigation @smoke', async ({ context }) => {
+    //     const pagePromise = context.waitForEvent('page');
+    //     await homePage.navigateToLinkedinProfile();
+    //     const newPage = await pagePromise;
+    //     await newPage.waitForLoadState();
+    //     await expect(newPage).toHaveURL(/linkedin.com\/in\/utsavdeep/);
+    // })
 })

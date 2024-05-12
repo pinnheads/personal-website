@@ -18,15 +18,28 @@ const { title, description } = Astro.props;
     <head>
         <Head title={title} description={description} />
     </head>
-    <body class='bg-white dark:bg-black'>
+    <body class='bg-white dark:bg-black overflow-x-hidden p-6 py-2 md:p-12'>
         <Navbar />
-        <div class="px-6 py-2 md:p-8">
-            <slot />
-        </div>
+        
+        <slot />
         
         <script>
-            // Add “loaded” class once the document has completely loaded.
-            addEventListener('load', () => document.documentElement.classList.add('loaded'));
+            addEventListener('load', () => {
+                document.documentElement.classList.add('loaded')
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0');
+                        entry.target.classList.add('animate-fade-up');
+                        entry.target.classList.add('animate-duration-[500ms]');
+                        entry.target.classList.add('animate-delay-100');
+                    }
+                })
+            })
+            const animateElements = document.querySelectorAll('.opacity-0');
+            animateElements.forEach((el) => observer.observe(el));
         </script>
         <style>
             body {

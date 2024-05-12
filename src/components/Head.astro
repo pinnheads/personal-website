@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import SitePreview from '../assets/site-preview.png';
 
 interface Props {
     title?: string | undefined;
@@ -15,22 +14,22 @@ const { title = `${data.name} - ${data.label}`, description = `${data.summary}` 
 
 <meta charset='UTF-8' />
 <!-- Primary Meta Tags -->
-<title>{data.name} - {data.label}</title>
-<meta name="title" content=`${data.name} - ${data.label}` />
-<meta name="description" content=`${data.summary}` />
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://utsavdeep.com/" />
-<meta property="og:title" content=`${data.name} - ${data.label}` />
-<meta property="og:description" content=`${data.summary}` />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
 <meta property="og:image" content="https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content="https://utsavdeep.com/" />
-<meta property="twitter:title" content=`${data.name} - ${data.label}` />
-<meta property="twitter:description" content=`${data.summary}` />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://raw.githubusercontent.com/pinnheads/personal-website/main/src/assets/site-preview.png" />
 
 <!-- Favicon -->

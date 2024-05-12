@@ -21,5 +21,6 @@ export default {
 	},
 	plugins: [
 		require('tailwindcss-animated'),
+		require('autoprefixer'),
 	],
 }

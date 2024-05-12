@@ -5,7 +5,10 @@
   },
   "include": [
     "src/**/*.ts",
-    "env.d.ts",
-    "tests/**/*.ts"
+    "src/**/*.astro",
+    "src/env.d.ts",
+    "global.d.ts",
+    "tests/**/*.ts",
+    "src/aos.js"
   ]
 }

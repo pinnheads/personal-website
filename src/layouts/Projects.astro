@@ -1,0 +1,43 @@
+---
+import Featured from '../components/Featured.astro';
+import Card from '../components/Card.astro';
+
+interface Project {
+    name: string;
+    image: string;
+    isFeatured: boolean;
+    description: string;
+    highlights: [string];
+    github: string;
+    live: string;
+}
+
+const { getData } = Astro.locals;
+const data: Project[] = await getData('projects');
+---
+
+<section id='projects' class="h-full mb-10 space-y-6">
+    <h1 class='opacity-0 text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl font-bold' data-testid="projects-title">
+        Projects
+    </h1>
+    <p class='opacity-0 text-da-gray dark:text-lg-gray mt-2 mb-4' data-testid="projects-subheading">My most recent and proud work</p>
+    <div class='opacity-0 flex flex-col items-center space-y-6 md:space-y-0'>
+        {
+            data.map((project: Project) => (
+                project.isFeatured ? 
+                    <Featured project={project} /> : ""
+            ))
+        }
+    </div>
+    <div class="flex w-full justify-center my-6 md:my-10 opacity-0" data-testid="projects-other">
+        <p class="flex justify-between w-full items-center text-da-gray dark:text-lg-gray font-medium text-lg before:content-[''] before:w-1/12 before:md:w-3/12 before:lg:w-4/12 before:h-[1px] before:bg-lg-gray before:mr-2 after:content-[''] after:w-1/12 after:md:w-3/12 after:lg:w-4/12 after:h-[1px] after:bg-lg-gray after:mr-2">Other noteworthy projects</p>
+    </div>
+    <div class="my-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-4 items-center justify-evenly">
+        {
+            data.map((project: Project) => (
+                project.isFeatured ? 
+                    "": <Card project={project} />
+            ))
+        }
+    </div>
+</section>

@@ -21,10 +21,10 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test --grep @regression
+        run: npx playwright test --grep @smoke
         env:
           ENV: preview
-          URL: https://preview.utsavdeep.com
+          URL: http://localhost:4321
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -33,6 +33,9 @@ jobs:
           retention-days: 2
       - name: Build project
         run: npm install && npm run build
+        env:
+          ENV: preview
+          URL: https://preview.utsavdeep.com
       - name: Publish
         uses: cloudflare/pages-action@1
         with:
@@ -43,5 +46,10 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: preview
         env:
-          ENV: production
-          URL: https://utsavdeep.com
+          ENV: preview
+          URL: https://preview.utsavdeep.com
+      - name: Run Playwright tests
+        run: npx playwright test --grep @regression
+        env:
+          ENV: preview
+          URL: http://preview.utsavdeep.com

@@ -7,22 +7,28 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/cloudflare": "^9.0.0",
+    "@astrojs/check": "^0.5.4",
+    "@astrojs/cloudflare": "^9.0.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/inter": "^5.0.16",
     "@fontsource/poppins": "^5.0.8",
-    "astro": "^4.2.6",
+    "astro": "^4.4.0",
+    "astro-icon": "^1.1.0",
     "dotenv": "^16.4.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.64",
+    "@iconify-json/teenyicons": "^1.1.9",
     "@playwright/test": "^1.41.1",
     "@types/node": "^20.11.10",
+    "autoprefixer": "^10.4.17",
     "tailwindcss-animated": "^1.0.1"
   }
 }

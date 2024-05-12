@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import About from "../layouts/About.astro";
-import json from "../assets/resume.json";
-const data = json;
+import Projects from "../layouts/Projects.astro";
+import Work from "../layouts/Work.astro";
 ---
 
 <BaseLayout>
-    <About data={data.basics} />
+    <About />
+    <Projects />
+    <Work />
 </BaseLayout>
