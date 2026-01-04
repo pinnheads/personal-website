@@ -6,3 +6,7 @@ declare namespace App {
         getData: (resData: string) => Promise<any>
     }
 }
+
+interface Window {
+    toggleTheme: () => void;
+}

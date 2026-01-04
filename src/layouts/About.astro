@@ -1,67 +1,81 @@
 ---
-import { Image } from 'astro:assets';
-import Socials from '../components/Socials.astro';
-import Button from '../components/Button.astro';
-import Skills from '../components/Skills.astro';
-import Profile from '../assets/profile-circle.webp';
+import { Icon } from 'astro-icon/components';
+import data from '../assets/architect-data.json';
 
-const { isOn, getData } = Astro.locals;
-const data = await getData('basics');
+const { profile, specs } = data;
 ---
 
-<section class='h-svh' id='about'>
-    <Skills />
-    <div
-        class='flex flex-col portrait:flex-col-reverse md:flex-row justify-evenly portrait:justify-evenly md:justify-between w-full h-5/6 items-center'
-    >
-        <div class='w-full font-extrabold space-y-2 md:space-y-4 py-4 opacity-0'>
-            <span class='text-teal'>Hello! My name is</span>
-            <p class='text-black dark:text-white text-4xl md:text-4xl 2xl:text-6xl' data-testid='intro-name'>
-                {data.name}
-            </p>
-            <p
-                class='text-da-gray dark:text-lg-gray portrait:text-2xl md:text-4xl 2xl:text-6xl'
-                data-testid='intro-profession'
-            >
-                a {data.label}
-            </p>
-            <p
-                class='text-da-gray text-sm md:text-base dark:text-lg-gray font-medium text-justify md:text-left'
-                data-testid='intro-summary'
-            >
-                {data.summary}
-            </p>
-            <div class='space-y-2 md:space-y-8'>
-                <div
-                    class='flex flex-row w-full md:w-6/12 2xl:w-4/12 justify-start space-x-5 md:space-x-10 2xl:space-x-16 text-black dark:text-white text-2xl md:text-3xl 3xl:text-4xl font-extrabold animate-fade-right animate-delay-[500ms]'
-                >
-                    <Button btnText='Resume' href='/resume.pdf' testid='resume-btn' />
-                    <!-- TODO: Update this once Contact Section is Complete -->
-                    {
-                        (await isOn('navbarLinks')) ? (
-                            <Button btnText='Contact' style='text-teal' href='#contact' testid='contact-btn' />
-                        ) : (
-                            <Button
-                                btnText='Contact'
-                                style='text-teal'
-                                href='mailto:utsavdeep01@gmail.com'
-                                testid='contact-btn'
-                            />
-                        )
-                    }
-                </div>
-                <Socials />
-            </div>
+<div>
+    <div class="inline-block px-2 py-1 border font-mono text-xs mb-4 bg-orange-100 border-orange-200 text-orange-700 dark:bg-orange-500/10 dark:border-orange-500/20 dark:text-orange-500">
+        SYSTEM_ID: {profile.id}
+    </div>
+    
+    <h1 class="text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-none uppercase text-black dark:text-white">
+        {profile.name.split(' ').map((n) => (
+            <span class="block">{n}</span>
+        ))}
+    </h1>
+    
+    <p class="text-lg leading-relaxed max-w-xs text-black/60 dark:text-white/50 mb-12">
+        {profile.bio}
+    </p>
+
+    <div class="space-y-6">
+        <div class="flex items-center gap-2 mb-6">
+            <div class="h-px w-8 bg-orange-600 dark:bg-orange-500"></div>
+            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">SPECIFICATIONS</span>
         </div>
-        <div
-            class='w-full portrait:w-full md:w-4/5 2xl:w-4/6 flex justify-center portrait:justify-center md:justify-end'
-        >
-            <Image
-                src={Profile}
-                alt='All the technologies I have worked with'
-                class='opacity-0 size-40 md:size-64 2xl:size-96'
-                data-testid='intro-profile-image'
-            />
+
+        <div class="grid gap-4">
+            {specs.map((spec) => (
+                <div class="flex justify-between items-end border-b border-dashed pb-2 border-black/10 dark:border-white/10">
+                    <span class="text-sm font-bold text-black/40 dark:text-white/40">{spec.label}</span>
+                    <span class="font-mono text-sm text-orange-700 dark:text-orange-400">{spec.value}</span>
+                </div>
+            ))}
         </div>
     </div>
-</section>
+
+    <div class="space-y-4 mt-12">
+        <div class="flex items-center gap-2 mb-6">
+            <div class="h-px w-8 bg-orange-600 dark:bg-orange-500"></div>
+            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">CONNECT_LINKS</span>
+        </div>
+        
+        <div class="flex gap-4">
+            {profile.social.github && (
+                <a href={profile.social.github} class="p-3 border border-black/10 text-black hover:bg-black hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+                    <Icon name="lucide:github" size={20} />
+                </a>
+            )}
+            {profile.social.linkedin && (
+                <a href={profile.social.linkedin} class="p-3 border border-black/10 text-black hover:bg-[#0077b5] hover:border-[#0077b5] hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-[#0077b5] dark:hover:border-[#0077b5] dark:hover:text-white transition-colors">
+                    <Icon name="lucide:linkedin" size={20} />
+                </a>
+            )}
+            <a href={`mailto:${profile.email}`} class="p-3 border border-black/10 text-black hover:bg-orange-600 hover:border-orange-600 hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-orange-500 dark:hover:border-orange-500 dark:hover:text-black transition-colors">
+                <Icon name="lucide:mail" size={20} />
+            </a>
+            
+            <button 
+                id="theme-toggle"
+                class="p-3 border ml-auto border-black/10 text-black hover:bg-black hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+            >
+                <Icon name="lucide:sun" size={20} class="hidden dark:block" />
+                <Icon name="lucide:moon" size={20} class="block dark:hidden" />
+            </button>
+        </div>
+    </div>
+</div>
+
+<script lang="ts">
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            // Check if window.toggleTheme is available (it should be from BaseLayout)
+            if (window.toggleTheme) {
+                window.toggleTheme();
+            }
+        });
+    }
+</script>
