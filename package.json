@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test:smoke": "npx playwright test --grep @smoke",
-    "test:regression": "npx playwright test --grep @regression"
+    "test:regression": "npx playwright test --grep @regression",
+    "test:docker": "docker build -t portfolio-tests . && docker run --rm --ipc=host -v \"$(pwd)/playwright-report:/app/playwright-report\" portfolio-tests"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.4",
