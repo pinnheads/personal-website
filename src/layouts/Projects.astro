@@ -21,7 +21,7 @@ const data: Project[] = await getData('projects');
         Projects
     </h1>
     <p class='opacity-0 text-da-gray dark:text-lg-gray mt-2 mb-4' data-testid="projects-subheading">My most recent and proud work</p>
-    <div class='opacity-0 flex flex-col items-center space-y-6 md:space-y-0'>
+    <div class='opacity-0 flex flex-col space-y-6 md:space-y-0'>
         {
             data.map((project: Project) => (
                 project.isFeatured ? 
