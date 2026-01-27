@@ -173,6 +173,19 @@
   ],
   "projects": [
     {
+      "name": "Static Site Generator",
+      "image": "ssg-preview.png",
+      "isFeatured": true,
+      "description": "A simple Python-based static site generator that converts Markdown files into a fully-functional HTML website",
+      "highlights": [
+        "Python",
+        "Pillow",
+        "Github Pages"
+      ],
+      "github": "https://github.com/pinnheads/static-site-generator.github.io",
+      "live": "https://v1.utsavdeep.com/static-site-generator.github.io/"
+    },
+    {
       "name": "Personal Portfolio Website",
       "image": "portfolio_preview.png",
       "isFeatured": false,
@@ -207,16 +220,18 @@
     {
       "name": "Smart Bill Splitter",
       "image": "upload.png",
-      "isFeatured": true,
+      "isFeatured": false,
       "description": "Upload a receipt, let AI extract the items, and split the cost effortlessly.",
       "highlights": [
         "React",
         "Google Gemini API",
         "Javascript",
-        "Tailwind"
+        "Tailwind",
+        "Self-Hosted",
+        "Coolify"
       ],
       "github": "https://github.com/pinnheads/bill-split",
-      "live": ""
+      "live": "https://bill-split.utsavdeep.com"
     }
   ]
 }
