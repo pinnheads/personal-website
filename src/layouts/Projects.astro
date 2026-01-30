@@ -9,7 +9,7 @@ const { projects } = data;
     <div class="flex items-end justify-between mb-8">
         <div class="flex items-center gap-2">
             <div class="h-px w-8 bg-orange-600 dark:bg-orange-500"></div>
-            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">DEPLOYED_MODULES</span>
+            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">PROJECTS</span>
         </div>
         <span class="font-mono text-xs text-black/30 dark:text-white/30">[ {projects.length.toString().padStart(2, '0')} ITEMS ]</span>
     </div>
@@ -38,23 +38,29 @@ const { projects } = data;
                         />
                     </div>
                 </div>
-                
                 <div class="project-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
-                    <div class="px-6 pb-6 pl-16 grid md:grid-cols-2 gap-8">
+                    <div class="px-6 pb-6 grid md:grid-cols-2 gap-4 items-center">
                         <p class="text-black/60 dark:text-white/60 leading-relaxed max-w-lg">
                             {project.description}
                         </p>
-                        <div class="flex flex-col items-end justify-between gap-4">
-                            <div class="flex gap-2">
-                                {project.tech.map((t) => (
-                                    <span class="px-2 py-1 border text-[10px] font-mono border-black/20 text-black/60 dark:border-white/20 dark:text-white/60">
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-                            <a href={project.link} class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:underline text-orange-600 dark:text-orange-500">
-                                Initialize <Icon name="lucide:arrow-up-right" size={16} />
+                        <div class="flex flex-row justify-end gap-2 p-4">
+                          <div class="flex gap-8">
+                            {project.link ? <a href={project.link} target="_blank" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:underline text-orange-600 dark:text-orange-500">
+                                LIVE <Icon name="lucide:arrow-up-right" size={16} />
+                            </a> : ""}
+                            <a href={project.github} target="_blank" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:underline text-orange-600 dark:text-orange-500">
+                                CODE <Icon name="lucide:github" size={16} />
                             </a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-end justify-between gap-4 p-4">
+                        <div class="flex gap-3">
+                            {project.tech.map((t) => (
+                                <span class="px-2 py-1 border text-[10px] font-mono border-black/20 text-black/60 dark:border-white/20 dark:text-white/60">
+                                    {t}
+                                </span>
+                            ))}
                         </div>
                     </div>
                 </div>

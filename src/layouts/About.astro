@@ -33,6 +33,15 @@ const { profile, specs } = data;
                     <span class="font-mono text-sm text-orange-700 dark:text-orange-400">{spec.value}</span>
                 </div>
             ))}
+            {profile.social.resume && (
+                <div class="flex justify-between items-end border-b border-dashed pb-2 border-black/10 dark:border-white/10">
+                    <span class="text-sm font-bold text-black/40 dark:text-white/40">RESUME</span>
+                    <a href={profile.social.resume}>
+                        <span class="font-mono text-sm text-orange-700 dark:text-orange-400">LINK</span>
+                    </a>
+                </div>
+            )}
+
         </div>
     </div>
 

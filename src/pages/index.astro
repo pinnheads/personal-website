@@ -5,6 +5,7 @@ import Projects from "../layouts/Projects.astro";
 import Work from "../layouts/Work.astro";
 import Skills from "../components/Skills.astro";
 import { Icon } from 'astro-icon/components';
+import {version} from "../../package.json";
 ---
 
 <BaseLayout>
@@ -30,9 +31,9 @@ import { Icon } from 'astro-icon/components';
             <footer class="pt-20 border-t border-black/10 dark:border-white/10 flex justify-between items-center opacity-50">
                 <div class="flex gap-2 items-center text-black dark:text-white">
                    <Icon name="lucide:code" size={16} />
-                   <span class="font-mono text-xs">BUILD_VER: 2.0.5</span>
+                   <span class="font-mono text-xs">BUILD_VER: {version}</span>
                 </div>
-                <span class="font-mono text-xs text-black dark:text-white">© 2025 UTSAV_DEEP</span>
+                <span class="font-mono text-xs text-black dark:text-white">© 2026 UTSAV_DEEP</span>
              </footer>
         </main>
     </div>

@@ -1,14 +1,14 @@
 {
   "profile": {
-    "name": "UTSAV DEEP",
-    "id": "UD-2025-V2",
-    "role": "FULL_STACK_ENG",
-    "bio": "Engineering reliability into complex systems. Bridging the gap between automated testing and full-stack development.",
+    "name": "Utsav Deep",
+    "id": "UD-2026-V4",
+    "role": "Software Engineer",
+    "bio": "Engineering reliability into complex systems. Bridging the gap between automated testing and development. Currently pursuing Master's in Hochschule Fulda.",
     "email": "mail@utsavdeep.com",
     "social": {
       "github": "https://github.com/pinnheads",
       "linkedin": "https://linkedin.com/in/utsavdeep",
-      "resume": "#"
+      "resume": "https://drive.google.com/file/d/1LcqxHVB7TqjxeTz7evhXpsOcNJJvsZnq/view?usp=sharing"
     }
   },
   "specs": [
@@ -18,7 +18,7 @@
     },
     {
       "label": "EXPERIENCE",
-      "value": "03+ YEARS"
+      "value": "~ 03 YEARS"
     },
     {
       "label": "STACK",
@@ -57,28 +57,80 @@
   "projects": [
     {
       "id": "01",
+      "title": "Static Site Generator",
+      "category": "Frontend/Parser",
+      "description": "A simple Python-based static site generator that converts Markdown files into a fully-functional HTML website",
+      "tech": [
+        "Python",
+        "Pillow",
+        "Github Pages"
+      ],
+      "github": "https://github.com/pinnheads/static-site-generator.github.io",
+      "link": "https://v1.utsavdeep.com/static-site-generator.github.io/"
+    },
+    {
+      "id": "02",
       "title": "Portfolio V2",
       "category": "Frontend",
       "description": "A high-performance portfolio site built with Astro and Tailwind CSS, featuring a cyberpunk aesthetic and optimized for speed and accessibility.",
       "tech": [
         "Astro",
+        "Typescript",
+        "Playwright",
         "Tailwind",
-        "Cloudflare"
+        "HTML",
+        "CSS",
+        "SSR",
+        "Cloudflare",
+        "Github Actions"
       ],
+      "github": "https://github.com/pinnheads/personal-website",
       "link": "https://utsavdeep.com"
+    },
+    {
+      "id": "04",
+      "title": "Smart Bill Splitter",
+      "category": "Frontend/AI",
+      "description": "Upload a receipt, let AI extract the items, and split the cost effortlessly.",
+      "tech": [
+        "React",
+        "Google Gemini API",
+        "Javascript",
+        "Tailwind",
+        "Self-Hosted",
+        "Coolify"
+      ],
+      "github": "https://github.com/pinnheads/bill-split",
+      "live": "https://bill-split.utsavdeep.com"
+    },
+    {
+      "id": "03",
+      "title": "Drumkit Emulator",
+      "category": "Frontend",
+      "description": "A simple web drumkit emulator written in plain HTMl, CSS and Javascript",
+      "tech": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ],
+      "github": "https://github.com/pinnheads/drumkit.github.io",
+      "link": "https://drumkit.utsavdeep.com"
     }
   ],
   "experience": [
     {
       "company": "IGS (Intact Green Services)",
-      "period": "2021 - 2024",
+      "period": "JUL 2021 - FEB 2024",
       "role": "Software Test Engineer",
-      "description": "Leading the automation strategy for the core online gaming platform. Reduced regression testing time by 60% through parallel execution pipelines. Led CI/CD efforts for implementing testing pipelines using AWS.",
+      "description": "Lead the automation strategy for the core online gaming platform. Reduced regression testing time by 60% through parallel execution pipelines. Led CI/CD efforts for implementing testing pipelines using AWS.",
       "tech": [
-        "Java",
+        "Java/Python",
         "Selenium",
         "Jenkins",
-        "Appium"
+        "Appium",
+        "CI/CD",
+        "NodeJS",
+        "Git/Github"
       ]
     }
   ]
