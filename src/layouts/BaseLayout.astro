@@ -52,7 +52,7 @@ const { title, description } = Astro.props;
         <!-- Main Content Slot -->
         <slot />
         
-        <script lang="ts">
+        <script is:inline lang="ts">
             // Cursor Logic
             const cursor = document.getElementById('custom-cursor');
             const coords = document.getElementById('cursor-coords');

@@ -1,20 +1,34 @@
-# Get the Playwright version from package.json or use a compatible one
-FROM mcr.microsoft.com/playwright:v1.41.1-jammy
+# -------------- Build Stage ----------------
+FROM node:20-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install Dependencies
+RUN npm ci
+
+# Copy project files
+COPY . .
+
+# Build Astro
+RUN npm run build
+
+
+# -------------- Production Stage ----------------
+FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json package-lock.json ./
+ENV NODE_ENV=preview
 
-# Install dependencies
-RUN npm ci
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
 
-# Copy the rest of the application code
-COPY . .
+EXPOSE 6004
 
-# Build the application (optional, but ensures build validity)
-RUN npm run build
-
-# Run Playwright tests
-# We use --ipc=host in the docker run command, but here we just define the entrypoint
-CMD ["npx", "playwright", "test"]
+# Start Server
+CMD ["node", "dist/server/entry.mjs"]
