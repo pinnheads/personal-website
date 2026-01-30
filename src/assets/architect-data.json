@@ -1,0 +1,85 @@
+{
+  "profile": {
+    "name": "UTSAV DEEP",
+    "id": "UD-2025-V2",
+    "role": "FULL_STACK_ENG",
+    "bio": "Engineering reliability into complex systems. Bridging the gap between automated testing and full-stack development.",
+    "email": "mail@utsavdeep.com",
+    "social": {
+      "github": "https://github.com/pinnheads",
+      "linkedin": "https://linkedin.com/in/utsavdeep",
+      "resume": "#"
+    }
+  },
+  "specs": [
+    {
+      "label": "LOCATION",
+      "value": "FULDA, DE"
+    },
+    {
+      "label": "EXPERIENCE",
+      "value": "03+ YEARS"
+    },
+    {
+      "label": "STACK",
+      "value": "PYTHON/TYPESCRIPT"
+    }
+  ],
+  "skills": [
+    {
+      "category": "CORE_STACK",
+      "items": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Python"
+      ]
+    },
+    {
+      "category": "QUALITY_ENG",
+      "items": [
+        "Selenium",
+        "Playwright",
+        "Jest",
+        "Appium"
+      ]
+    },
+    {
+      "category": "INFRA",
+      "items": [
+        "Git/Github",
+        "Docker",
+        "CI/CD",
+        "AWS"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "title": "Portfolio V2",
+      "category": "Frontend",
+      "description": "A high-performance portfolio site built with Astro and Tailwind CSS, featuring a cyberpunk aesthetic and optimized for speed and accessibility.",
+      "tech": [
+        "Astro",
+        "Tailwind",
+        "Cloudflare"
+      ],
+      "link": "https://utsavdeep.com"
+    }
+  ],
+  "experience": [
+    {
+      "company": "IGS (Intact Green Services)",
+      "period": "2021 - 2024",
+      "role": "Software Test Engineer",
+      "description": "Leading the automation strategy for the core online gaming platform. Reduced regression testing time by 60% through parallel execution pipelines. Led CI/CD efforts for implementing testing pipelines using AWS.",
+      "tech": [
+        "Java",
+        "Selenium",
+        "Jenkins",
+        "Appium"
+      ]
+    }
+  ]
+}
