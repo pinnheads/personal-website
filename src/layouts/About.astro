@@ -10,7 +10,7 @@ const { profile, specs } = data;
         SYSTEM_ID: {profile.id}
     </div>
     
-    <h1 class="text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-none uppercase text-black dark:text-white">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-none uppercase text-black dark:text-white">
         {profile.name.split(' ').map((n) => (
             <span class="block">{n}</span>
         ))}
@@ -53,22 +53,23 @@ const { profile, specs } = data;
         
         <div class="flex gap-4">
             {profile.social.github && (
-                <a href={profile.social.github} class="p-3 border border-black/10 text-black hover:bg-black hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+                <a aria-label="Github Link" href={profile.social.github} class="p-3 border border-black/10 text-black hover:bg-black hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
                     <Icon name="lucide:github" size={20} />
                 </a>
             )}
             {profile.social.linkedin && (
-                <a href={profile.social.linkedin} class="p-3 border border-black/10 text-black hover:bg-[#0077b5] hover:border-[#0077b5] hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-[#0077b5] dark:hover:border-[#0077b5] dark:hover:text-white transition-colors">
+                <a aria-label="Linkedin Link" href={profile.social.linkedin} class="p-3 border border-black/10 text-black hover:bg-[#0077b5] hover:border-[#0077b5] hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-[#0077b5] dark:hover:border-[#0077b5] dark:hover:text-white transition-colors">
                     <Icon name="lucide:linkedin" size={20} />
                 </a>
             )}
-            <a href={`mailto:${profile.email}`} class="p-3 border border-black/10 text-black hover:bg-orange-600 hover:border-orange-600 hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-orange-500 dark:hover:border-orange-500 dark:hover:text-black transition-colors">
+            <a aria-label="Email Link" href={`mailto:${profile.email}`} class="p-3 border border-black/10 text-black hover:bg-orange-600 hover:border-orange-600 hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-orange-500 dark:hover:border-orange-500 dark:hover:text-black transition-colors">
                 <Icon name="lucide:mail" size={20} />
             </a>
             
             <button 
                 id="theme-toggle"
                 class="p-3 border ml-auto border-black/10 text-black hover:bg-black hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+                name="Theme Toggle"
             >
                 <Icon name="lucide:sun" size={20} class="hidden dark:block" />
                 <Icon name="lucide:moon" size={20} class="block dark:hidden" />
