@@ -1,11 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
 import data from '../assets/architect-data.json';
+import SystemObserver from '../components/SystemObserver.astro';
 
 const { profile, specs } = data;
 ---
 
 <div>
+    <SystemObserver />        
     <div class="inline-block px-2 py-1 border font-mono text-xs mb-4 bg-orange-100 border-orange-200 text-orange-700 dark:bg-orange-500/10 dark:border-orange-500/20 dark:text-orange-500">
         SYSTEM_ID: {profile.id}
     </div>
@@ -68,7 +70,6 @@ const { profile, specs } = data;
             <a aria-label="Email Link" href={`mailto:${profile.email}`} class="p-3 border border-black/10 text-black hover:bg-orange-600 hover:border-orange-600 hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-orange-500 dark:hover:border-orange-500 dark:hover:text-black transition-colors">
                 <Icon name="lucide:mail" size={20} />
             </a>
-            
             <button 
                 id="theme-toggle"
                 class="p-3 border ml-auto border-black/10 text-black hover:bg-black hover:text-white dark:border-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
