@@ -23,7 +23,7 @@ const { profile, specs } = data;
     <div class="space-y-6">
         <div class="flex items-center gap-2 mb-6">
             <div class="h-px w-8 bg-orange-600 dark:bg-orange-500"></div>
-            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">SPECIFICATIONS</span>
+            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">DETAILS</span>
         </div>
 
         <div class="grid gap-4">
@@ -34,10 +34,13 @@ const { profile, specs } = data;
                 </div>
             ))}
             {profile.social.resume && (
-                <div class="flex justify-between items-end border-b border-dashed pb-2 border-black/10 dark:border-white/10">
+                <div class="flex justify-between items-end border-b border-dashed pb-1 border-black/10 dark:border-white/10">
                     <span class="text-sm font-bold text-black/40 dark:text-white/40">RESUME</span>
-                    <a href={profile.social.resume}>
-                        <span class="font-mono text-sm text-orange-700 dark:text-orange-400">LINK</span>
+                    <a href={profile.social.resume} target="_blank">
+                      <div class="flex flex-row font-mono text-sm text-orange-700 dark:text-orange-400">
+                        <p>OPEN</p> 
+                        <Icon name="lucide:arrow-up-right" size={16} />
+                      </div>
                     </a>
                 </div>
             )}
@@ -48,7 +51,7 @@ const { profile, specs } = data;
     <div class="space-y-4 mt-12">
         <div class="flex items-center gap-2 mb-6">
             <div class="h-px w-8 bg-orange-600 dark:bg-orange-500"></div>
-            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">CONNECT_LINKS</span>
+            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">CONTACT & SOCAILS</span>
         </div>
         
         <div class="flex gap-4">

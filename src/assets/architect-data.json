@@ -19,25 +19,23 @@
     {
       "label": "EXPERIENCE",
       "value": "~ 03 YEARS"
-    },
-    {
-      "label": "STACK",
-      "value": "PYTHON/TYPESCRIPT"
     }
   ],
   "skills": [
     {
-      "category": "CORE_STACK",
+      "category": "DEVELOPMENT_STACK",
       "items": [
+        "Python",
+        "Java",
         "React",
-        "TypeScript",
         "Node.js",
-        "Python"
+        "JavaScript/TypeScript"
       ]
     },
     {
-      "category": "QUALITY_ENG",
+      "category": "QUALITY_ENGINEERING",
       "items": [
+        "E2E Testing",
         "Selenium",
         "Playwright",
         "Jest",
@@ -45,12 +43,13 @@
       ]
     },
     {
-      "category": "INFRA",
+      "category": "TOOLING",
       "items": [
         "Git/Github",
         "Docker",
-        "CI/CD",
-        "AWS"
+        "Linux",
+        "AWS",
+        "Self-Hosting"
       ]
     }
   ],
