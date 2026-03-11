@@ -1,127 +1,43 @@
 ---
-import { Icon } from 'astro-icon/components';
-import data from '../assets/architect-data.json';
+import Featured from '../components/Featured.astro';
+import Card from '../components/Card.astro';
 
-const { projects } = data;
+interface Project {
+    name: string;
+    image: string;
+    isFeatured: boolean;
+    description: string;
+    highlights: [string];
+    github: string;
+    live: string;
+}
+
+const { getData } = Astro.locals;
+const data: Project[] = await getData('projects');
 ---
 
-<section>
-    <div class="flex items-end justify-between mb-8">
-        <div class="flex items-center gap-2">
-            <div class="h-px w-8 bg-orange-600 dark:bg-orange-500"></div>
-            <span class="font-mono text-xs text-orange-600 dark:text-orange-500 tracking-widest">PROJECTS</span>
-        </div>
-        <span class="font-mono text-xs text-black/30 dark:text-white/30">[ {projects.length.toString().padStart(2, '0')} ITEMS ]</span>
+<section id='projects' class="h-full mb-10 space-y-6">
+    <h1 class='opacity-0 text-black dark:text-white text-2xl md:text-5xl 3xl:text-6xl font-bold' data-testid="projects-title">
+        Projects
+    </h1>
+    <p class='opacity-0 text-da-gray dark:text-lg-gray mt-2 mb-4' data-testid="projects-subheading">My most recent and proud work</p>
+    <div class='opacity-0 flex flex-col space-y-6 md:space-y-0'>
+        {
+            data.map((project: Project) => (
+                project.isFeatured ? 
+                    <Featured project={project} /> : ""
+            ))
+        }
     </div>
-    
-    <div class="border-t border-black/10 dark:border-white/10" id="projects-container">
-        {projects.map((project, index) => (
-            <div 
-                class={`project-item border-b transition-all duration-300 border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 ${index === 0 ? 'active' : ''}`}
-                data-id={project.id}
-            >
-                <div class="project-header flex items-center justify-between p-4 md:p-6 cursor-pointer">
-                    <div class="flex items-center gap-4 md:gap-6 min-w-0">
-                        <span class="project-id font-mono text-base md:text-lg transition-colors text-black/40 dark:text-white/40 shrink-0">
-                            {project.id}
-                        </span>
-                        <h3 class="project-title text-xl md:text-2xl font-bold uppercase tracking-tight transition-colors text-black/80 dark:text-white/80 break-words line-clamp-2 md:line-clamp-none">
-                            {project.title}
-                        </h3>
-                    </div>
-                    <div class="flex items-center gap-4 shrink-0">
-                        <span class="hidden md:block font-mono text-xs tracking-wider text-black/40 dark:text-white/40">{project.category}</span>
-                        <Icon 
-                            name="lucide:chevron-right" 
-                            size={20} 
-                            class="icon-arrow text-orange-600 dark:text-orange-500 transition-transform duration-300" 
-                        />
-                    </div>
-                </div>
-                <div class="project-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
-                    <div class="px-6 pb-6 grid md:grid-cols-2 gap-4 items-center">
-                        <p class="text-black/60 dark:text-white/60 leading-relaxed max-w-lg">
-                            {project.description}
-                        </p>
-                        <div class="flex flex-row md:justify-end gap-2 md:p-4">
-                          <div class="flex gap-8">
-                            {project.link ? <a href={project.link} target="_blank" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:underline text-orange-600 dark:text-orange-500">
-                                LIVE <Icon name="lucide:arrow-up-right" size={16} />
-                            </a> : ""}
-                            <a href={project.github} target="_blank" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:underline text-orange-600 dark:text-orange-500">
-                                CODE <Icon name="lucide:github" size={16} />
-                            </a>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-end justify-between gap-4 p-4">
-                        <div class="flex flex-wrap gap-2 md:gap-3">
-                            {project.tech.map((t) => (
-                                <span class="px-2 py-1 border text-[10px] font-mono border-black/20 text-black/60 dark:border-white/20 dark:text-white/60">
-                                    {t}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        ))}
+    <div class="flex w-full justify-center my-6 md:my-10 opacity-0" data-testid="projects-other">
+        <p class="flex justify-between w-full items-center text-da-gray dark:text-lg-gray font-medium text-lg before:content-[''] before:w-1/12 before:md:w-3/12 before:lg:w-4/12 before:h-[1px] before:bg-lg-gray before:mr-2 after:content-[''] after:w-1/12 after:md:w-3/12 after:lg:w-4/12 after:h-[1px] after:bg-lg-gray after:mr-2">Other noteworthy projects</p>
+    </div>
+    <div class="my-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-4 items-center justify-evenly">
+        {
+            data.map((project: Project) => (
+                project.isFeatured ? 
+                    "": <Card project={project} />
+            ))
+        }
     </div>
 </section>
-
-<style>
-    /* Active State Styles */
-    .project-item.active .project-content {
-        max-height: 800px;
-        opacity: 1;
-    }
-    
-    .project-item.active .icon-arrow {
-        transform: rotate(90deg);
-    }
-
-    .project-item.active .project-id {
-        color: #ea580c; /* orange-600 */
-    }
-    .project-item.active .project-title {
-        color: black;
-    }
-    
-    :global(.dark) .project-item.active .project-id {
-        color: #f97316; /* orange-500 */
-    }
-    :global(.dark) .project-item.active .project-title {
-        color: white;
-    }
-</style>
-
-<script>
-    // @ts-nocheck
-    const items = document.querySelectorAll('.project-item');
-
-    function setActive(targetItem) {
-        items.forEach(item => {
-            if (item === targetItem) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-    }
-
-    items.forEach(item => {
-        // Hover interaction for desktop
-        item.addEventListener('mouseenter', () => setActive(item));
-        
-        // Click interaction for mobile / fallback
-        const header = item.querySelector('.project-header');
-        if (header) {
-            header.addEventListener('click', (e) => {
-                // Ignore clicks on links (anchors or anything inside them)
-                if (e.target.closest('a')) return;
-                
-                setActive(item);
-            });
-        }
-    });
-</script>
