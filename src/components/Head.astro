@@ -1,15 +1,15 @@
 ---
 import '../styles/global.css';
+import data from '../assets/architect-data.json';
 
 interface Props {
     title?: string | undefined;
     description?: string | undefined;
 }
 
-const { getData } = Astro.locals;
-const data = await getData('basics');
+const { profile } = data;
 
-const { title = `${data.name} - ${data.label}`, description = `${data.summary}` } = Astro.props;
+const { title = `${profile.name} - ${profile.role}`, description = profile.bio } = Astro.props;
 ---
 
 <meta charset='UTF-8' />
@@ -41,7 +41,7 @@ const { title = `${data.name} - ${data.label}`, description = `${data.summary}` 
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
 
-<meta name='viewport' content='width=device-width' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
 <meta name='generator' content={Astro.generator} />
 <title>{title}</title>
 

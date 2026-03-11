@@ -1,0 +1,122 @@
+---
+
+---
+
+<div 
+  id="system-observer"
+  class="absolute -top-[62px] z-50 hidden md:block cursor-help transition-all duration-500 ease-out"
+  style="left: -4px;"
+  title="System Observer"
+>
+  <svg width="60" height="70" viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <!-- Antenna -->
+     <path d="M30 10V0" class="stroke-zinc-900 dark:stroke-white" stroke-width="2" />
+     <circle cx="30" cy="0" r="2" class="fill-orange-600 dark:fill-orange-500 animate-pulse" />
+
+     <!-- Head Shape -->
+     <rect x="10" y="10" width="40" height="28" rx="4" class="stroke-zinc-900 dark:stroke-white fill-[#F0F0F0] dark:fill-[#0A0A0A]" stroke-width="2" />
+     
+     <!-- Ear Pieces -->
+     <rect x="6" y="18" width="4" height="12" rx="1" class="fill-zinc-900 dark:fill-white" />
+     <rect x="50" y="18" width="4" height="12" rx="1" class="fill-zinc-900 dark:fill-white" />
+
+     <!-- Screen / Face Plate -->
+     <rect x="15" y="17" width="30" height="14" rx="2" class="fill-zinc-200 dark:fill-[#1a1a1a]" stroke="none" />
+
+     <!-- Eyes Container (Target for Blinking) -->
+     <g id="robot-eyes" style="transform-origin: 30px 24px;">
+        <!-- Left Eye -->
+        <circle cx="22" cy="24" r="3.5" class="stroke-zinc-900 dark:stroke-white" stroke-width="1.5" />
+        <circle id="pupil-left" cx="22" cy="24" r="2" class="fill-orange-600 dark:fill-orange-500" />
+
+        <!-- Right Eye -->
+        <circle cx="38" cy="24" r="3.5" class="stroke-zinc-900 dark:stroke-white" stroke-width="1.5" />
+        <circle id="pupil-right" cx="38" cy="24" r="2" class="fill-orange-600 dark:fill-orange-500" />
+     </g>
+
+     <!-- Mouth / Vent -->
+     <line x1="20" y1="34" x2="40" y2="34" class="stroke-zinc-900 dark:stroke-white" stroke-width="1" stroke-opacity="0.5" />
+
+     <!-- Neck -->
+     <rect x="25" y="38" width="10" height="4" class="fill-zinc-900 dark:fill-white" />
+
+     <!-- Body Chassis -->
+     <path d="M18 42H42L40 58H20L18 42Z" class="stroke-zinc-900 dark:stroke-white fill-[#F0F0F0] dark:fill-[#0A0A0A]" stroke-width="2" />
+     
+     <!-- Chest Detail -->
+     <circle cx="30" cy="50" r="3" class="stroke-zinc-900 dark:stroke-white" stroke-width="1" stroke-opacity="0.5" />
+
+     <!-- Legs (Dangling) -->
+     <path d="M22 58V65" class="stroke-zinc-900 dark:stroke-white" stroke-width="2" stroke-linecap="round" />
+     <path d="M38 58V65" class="stroke-zinc-900 dark:stroke-white" stroke-width="2" stroke-linecap="round" />
+  </svg>
+</div>
+
+<script is:inline>
+  // Isolate logic to prevent variable collisions
+  (() => {
+    const robot = document.getElementById('system-observer');
+    const eyesContainer = document.getElementById('robot-eyes');
+    const pupilLeft = document.getElementById('pupil-left');
+    const pupilRight = document.getElementById('pupil-right');
+    
+    let isLeft = true;
+
+    // --- MOUSE TRACKING LOGIC ---
+    const handleMouseMove = (e) => {
+      if (!robot || !pupilLeft || !pupilRight) return;
+      
+      const rect = robot.getBoundingClientRect();
+      const robotX = rect.left + rect.width / 2;
+      const robotY = rect.top + rect.height / 3;
+
+      // Angle calculation
+      const dx = e.clientX - robotX;
+      const dy = e.clientY - robotY;
+      const angle = Math.atan2(dy, dx);
+      
+      // Limit pupil movement radius (3px)
+      const maxRadius = 3; 
+      const distance = Math.min(Math.hypot(dx, dy) / 20, maxRadius);
+      
+      const x = Math.cos(angle) * distance;
+      const y = Math.sin(angle) * distance;
+
+      // Update positions (Default CX/CY + Offset)
+      pupilLeft.setAttribute('cx', `${22 + x}`);
+      pupilLeft.setAttribute('cy', `${24 + y}`);
+      pupilRight.setAttribute('cx', `${38 + x}`);
+      pupilRight.setAttribute('cy', `${24 + y}`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // --- BLINKING LOGIC ---
+    const blinkLoop = () => {
+      if (!eyesContainer) return;
+      
+      // Close eyes
+      eyesContainer.style.transform = 'scaleY(0.1)';
+      
+      // Open after 150ms
+      setTimeout(() => {
+        eyesContainer.style.transform = 'scaleY(1)';
+      }, 150);
+
+      // Random next blink between 2s and 5s
+      setTimeout(blinkLoop, Math.random() * 3000 + 2000);
+    };
+    
+    // Start blinking loop
+    setTimeout(blinkLoop, 2000);
+
+    // --- AVOIDANCE LOGIC ---
+    if (robot) {
+      robot.addEventListener('mouseenter', () => {
+        isLeft = !isLeft;
+        // 56px is roughly the width of the robot SVG (60px) minus a little padding
+        robot.style.left = isLeft ? '-4px' : 'calc(100% - 56px)';
+      });
+    }
+  })();
+</script>
