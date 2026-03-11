@@ -3,38 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import About from "../layouts/About.astro";
 import Projects from "../layouts/Projects.astro";
 import Work from "../layouts/Work.astro";
-import Skills from "../components/Skills.astro";
-import { Icon } from 'astro-icon/components';
-import {version} from "../../package.json";
 ---
 
 <BaseLayout>
-    <div class="relative z-10 max-w-7xl mx-auto pt-20 md:pt-24 pb-20 px-6 md:px-8 grid lg:grid-cols-12 gap-12">
-        
-        <!-- Sidebar / HUD -->
-        <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit space-y-12">
-            <About />
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="lg:col-span-8 space-y-20">
-            
-            <!-- Skills Module -->
-            <Skills />
-
-            <!-- Projects Module -->
-            <Projects />
-
-            <!-- Experience Module -->
-            <Work />
-
-            <footer class="pt-20 border-t border-black/10 dark:border-white/10 flex justify-between items-center opacity-50">
-                <div class="flex gap-2 items-center text-black dark:text-white">
-                   <Icon name="lucide:code" size={16} />
-                   <span class="font-mono text-xs">BUILD_VER: {version}</span>
-                </div>
-                <span class="font-mono text-xs text-black dark:text-white">© 2026 UTSAV_DEEP</span>
-             </footer>
-        </main>
-    </div>
+    <About />
+    <Projects />
+    <Work />
 </BaseLayout>

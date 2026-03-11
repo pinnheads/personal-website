@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    project: {
+        name: string;
+        isFeatured: boolean;
+        description: string;
+        highlights: [string];
+        github: string;
+        live: string;
+    };
+}
+const { project } = Astro.props;
+const name = project.name.toLowerCase().replaceAll(' ', '_');
+---
+
+<div
+    class='bg-black dark:bg-white group text-white dark:text-black p-4 rounded-md w-full h-full flex flex-col justify-between min-h-72 hover:-translate-y-3 hover:shadow-lg hover:shadow-teal ease-linear duration-300 opacity-0'
+>
+    <div class='flex flex-row items-start justify-between'>
+        <Icon name='mdi:folder' class='text-da-gray size-8' />
+        <div class='flex flex-row items-center space-x-3'>
+            {
+                project.github ? (
+                    <a
+                        class='font-semibold flex items-start'
+                        target='_blank'
+                        data-testid=`${name}-featured-github`
+                        href={project.github}
+                    >
+                        <Icon
+                            name='mdi:github'
+                            class='size-8'
+                        />
+                    </a>
+                ) : (
+                    ''
+                )
+            }
+            {
+                project.live ? (
+                    <a
+                        class='text-teal flex items-center font-semibold hover:underline underline-offset-2'
+                        target='_blank'
+                        data-testid=`${name}-featured-live`
+                        href={project.live}
+                    >
+                        <Icon name="mdi:external-link" class="size-8"/>
+                    </a>
+                ) : (
+                    ''
+                )
+            }
+        </div>
+    </div>
+    <p class='font-bold text-lg h-1/4 pt-3 capitalize ease-in duration-200 group-hover:text-teal' data-testid=`${name}-project-name`>
+        {project.name}
+    </p>
+    <p class='items-start h-2/4 text-justify text-sm' data-testid=`${name}-project-description`>{project.description}</p>
+    <div class='flex flex-wrap h-1/4 text-lg-gray dark:text-da-gray items-end' >
+        {
+            project.highlights.map((skill) => (
+                <p class='hover:text-teal font-medium mr-2 md:mr-4 ease-linear duration-300 cursor-default hover:scale-105' data-testid=`${name}-project-${skill}`>
+                    {skill}
+                </p>
+            ))
+        }
+    </div>
+</div>

@@ -1,11 +1,9 @@
 ---
 import Head from '../components/Head.astro';
-import { Icon } from 'astro-icon/components';
+import Navbar from '../components/Navbar.astro';
 
 // Supports weights 100-900
 import '@fontsource-variable/inter';
-// Mono font for that technical look
-import '@fontsource/poppins'; 
 
 interface Props {
     title?: string | undefined;
@@ -20,110 +18,35 @@ const { title, description } = Astro.props;
     <head>
         <Head title={title} description={description} />
     </head>
-    <body class='font-sans transition-colors duration-500 bg-[#F0F0F0] text-zinc-900 selection:bg-orange-200 selection:text-orange-900 dark:bg-[#0A0A0A] dark:text-white dark:selection:bg-orange-500/30 dark:selection:text-orange-100'>
+    <body class='bg-white dark:bg-black overflow-x-hidden p-6 py-2 md:p-12'>
+        <Navbar />
         
-        <!-- Custom Cursor -->
-        <div 
-            id="custom-cursor"
-            class="fixed top-0 left-0 pointer-events-none z-50 mix-blend-difference will-change-transform"
-            style="transform: translate(-100px, -100px)"
-        >
-            <Icon name="lucide:crosshair" size={24} class="text-orange-600 dark:text-orange-500 opacity-80" />
-        </div>
-
-        <!-- Blueprint Grid Background -->
-        <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-500 bg-grid">
-            <div class="absolute top-20 left-20 text-black/20 dark:text-white/20">
-                <Icon name="lucide:crosshair" size={24} />
-            </div>
-            <div class="absolute bottom-20 right-20 text-black/20 dark:text-white/20">
-                <Icon name="lucide:crosshair" size={24} />
-            </div>
-        </div>
-
-        <!-- Frame Border HUD -->
-        <div class="fixed inset-4 border border-black/10 dark:border-white/10 pointer-events-none z-40 flex flex-col justify-between shadow-[0_0_0_100vmax_#F0F0F0] dark:shadow-[0_0_0_100vmax_#0A0A0A]">
-            <div class="flex justify-between p-2">
-               <span class="font-mono text-[10px] text-black/30 dark:text-white/20">SYS_STATUS: ONLINE</span>
-               <span id="cursor-coords" class="font-mono text-[10px] text-black/30 dark:text-white/20">TR-Y:000</span>
-            </div>
-        </div>
-
-        <!-- Main Content Slot -->
         <slot />
         
-        <script is:inline lang="ts">
-            // Cursor Logic
-            const cursor = document.getElementById('custom-cursor');
-            const coords = document.getElementById('cursor-coords');
-            
-            if (cursor && coords) {
-                let mouseX = -100;
-                let mouseY = -100;
-                let rafId = null;
+        <script>
+            addEventListener('load', () => {
+                document.documentElement.classList.add('loaded')
+            });
 
-                window.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX;
-                    mouseY = e.clientY;
-
-                    if (!rafId) {
-                        rafId = requestAnimationFrame(() => {
-                            cursor.style.transform = `translate3d(${mouseX - 12}px, ${mouseY - 12}px, 0)`;
-                            coords.innerText = `TR-Y:${mouseY}`;
-                            rafId = null;
-                        });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0');
+                        entry.target.classList.add('animate-fade-up');
+                        entry.target.classList.add('animate-duration-[500ms]');
+                        entry.target.classList.add('animate-delay-100');
                     }
-                });
-            }
-
-            // Theme Toggle Logic (exposed for other components to use)
-            window.toggleTheme = () => {
-                const html = document.documentElement;
-                if (html.classList.contains('dark')) {
-                    html.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    html.classList.add('dark');
-                    localStorage.setItem('theme', 'dark');
-                }
-            };
-
-            // Check local storage
-            if (localStorage.getItem('theme') === 'light') {
-                document.documentElement.classList.remove('dark');
-            }
+                })
+            })
+            const animateElements = document.querySelectorAll('.opacity-0');
+            animateElements.forEach((el) => observer.observe(el));
         </script>
-
         <style>
             body {
                 font-family: 'Inter Variable', sans-serif;
             }
-            /* Grid Pattern */
-            .bg-grid {
-                background-image: 
-                    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px), 
-                    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
-                background-size: 40px 40px;
-            }
-            html.dark .bg-grid {
-                background-image: 
-                    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), 
-                    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-            }
-            
-            /* Hide system cursor globally only on fine pointer devices */
-            @media (hover: hover) and (pointer: fine) {
-                html, body, * {
-                    cursor: none !important;
-                }
-            }
-
-            /* Hide custom cursor on touch devices */
-            @media (hover: none), (pointer: coarse) {
-                #custom-cursor {
-                    display: none !important;
-                }
-            }
         </style>
+        <!-- Cloudflare Web Analytics -->
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "332e5cbaefa04896ae12ae2e5c41dc38"}'></script><!-- End Cloudflare Web Analytics -->
     </body>
 </html>

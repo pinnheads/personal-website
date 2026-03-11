@@ -1,0 +1,14 @@
+---
+interface Props {
+    btnText: string;
+    href: string;
+    style?: string;
+    testid?: string;
+}
+
+const { href, btnText, style = 'text-black dark:text-white', testid } = Astro.props;
+---
+
+<a href={href} class={style} data-testid={testid}>
+    {btnText}
+</a>
