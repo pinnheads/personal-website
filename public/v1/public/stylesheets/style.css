@@ -1,0 +1,251 @@
+body,
+html {
+    font-family: 'Roboto',
+        sans-serif;
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.btn {
+    box-shadow: 5px 5px 8px #888888;
+}
+
+#navbar {
+    padding-top: 4%;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+#landing-page {
+    padding: 0px;
+    height: 100%;
+}
+
+.headings {
+    border-bottom: 5px solid #4cd3c2;
+    position: relative;
+    padding-bottom: 1%;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-size: 2rem;
+}
+
+/* Navbar */
+nav {
+    background-color: #f8eeee;
+}
+
+#navbar-content {
+    padding-right: 5%;
+}
+
+a.navbar-brand {
+    font-family: 'Roboto',
+        sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding-right: 5%;
+    padding-left: 3%;
+}
+
+.nav-item {
+    padding: 0 18px;
+    font-size: 1.25rem;
+}
+
+/* Title Section */
+#title {
+    background-color: #f8eeee;
+}
+
+.title-section {
+    padding: 14.3%;
+    padding-top: 12%;
+}
+
+.intro-image {
+    text-align: right;
+}
+
+.title-image {
+    width: 300px;
+    background-color: #181A1B;
+    border-radius: 100%;
+    margin-right: 50px;
+}
+
+#intro {
+    border-left: 1px solid black;
+    font-family: 'Roboto',
+        sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 0;
+    padding-left: 50px;
+}
+
+.intro-name {
+    font-family: 'Sacramento',
+        cursive;
+    margin: 0;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #4cd3c2;
+}
+
+@media (max-width:1000px) {
+    .title-section {
+        text-align: center;
+        padding: 0 0;
+    }
+
+    #intro {
+        margin: 0 20px;
+        padding-left: 0;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        text-align: center;
+        font-size: 1.2rem;
+        border: 0;
+        border-top: 1px solid black;
+    }
+
+    .title-image {
+        width: 200px;
+        background-color: #181A1B;
+        margin: 0;
+    }
+
+    .intro-name {
+        font-size: 4rem;
+    }
+
+    .intro-image {
+
+        text-align: center;
+        padding-top: 90px;
+        padding-bottom: 30px;
+    }
+
+    .down-icon {
+        right: 47%;
+    }
+}
+
+/* About Me */
+#about-section {
+    padding: 3% 10%;
+}
+
+.about {
+    padding: 2% 5%;
+    font-size: 1.2rem;
+}
+
+.about-description {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    line-height: 2;
+}
+
+.skill-heading {
+    margin-top: 40px;
+}
+
+.skill-svg {
+    width: 90%;
+}
+
+.loc-icon {
+    margin-top: 2%;
+}
+
+.skill-icon {
+    width: 50px;
+    margin: 8% 4%;
+}
+
+/* Projects Section */
+#projects-section {
+    padding: 3% 10%;
+    background-color: #f2f2f2;
+}
+
+.project-container {
+    padding: 5%;
+    text-align: center;
+}
+
+.project-link {
+    margin: 1%;
+}
+
+.card {
+    margin: 5%;
+    box-shadow: 10px 10px 8px #888888;
+}
+
+.card-img-top {
+    min-height: 200px;
+    max-height: 200px;
+}
+
+/* Contact Section */
+#contact-section {
+    padding: 3% 10%;
+}
+
+.contact-description {
+    line-height: 2;
+}
+
+.contact {
+    margin: 5%;
+}
+
+.contact-svg {
+    width: 90%;
+    margin-top: 7%;
+}
+
+.pro-social {
+    text-align: center;
+}
+
+a i {
+    margin: 5%;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-detail {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@media (max-width:1000px) {
+    .contact-detail {
+        font-size: 1rem;
+    }
+
+    .card-img-top {
+        min-height: 150px;
+        max-height: 150px;
+    }
+}
+
+/* Footer */
+#footer-section {
+    background-color: #eb4559;
+}
+
+.footer {
+    text-align: center;
+    /* font-size: 3rem; */
+    padding: 3%;
+}
+
+.social-icon {
+    margin: 20px 10px;
+}
