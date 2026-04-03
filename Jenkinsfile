@@ -6,20 +6,27 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
 
+    parameters {
+        choice(
+            name: 'DEPLOY_ENV',
+            choices: ['production', 'preview'],
+            description: 'Environment to deploy'
+        )
+    }
+
     environment {
         APP_NAME = 'personal-website'
         VERSION = "1.0.${env.BUILD_NUMBER}"
         CLOUDFLARE_API_TOKEN = credentials('CLOUDFLARE_API_TOKEN')
         CLOUDFLARE_ACCOUNT_ID = credentials('CLOUDFLARE_ACCOUNT_ID')
         CLOUDFLARE_PROJECT_NAME = 'personal-website'
-        DEPLOY_ENV = "${env.BRANCH_NAME == 'main' ? 'production' : 'preview'}"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
-                echo "Checking out ${env.APP_NAME} v${env.VERSION} on branch ${env.BRANCH_NAME}"
+                echo "Checking out ${env.APP_NAME} v${env.VERSION} on deployment environment ${params.DEPLOY_ENV}"
             }
         }
         stage('Install') {
@@ -43,12 +50,9 @@ pipeline {
         }
         stage('Build & Deploy') {
             steps {
-                echo "Deploying ${env.APP_NAME} v${env.VERSION} to ${env.DEPLOY_ENV} (branch: ${env.BRANCH_NAME})..."
+                echo "Deploying ${env.APP_NAME} v${env.VERSION} to deployment environment: ${params.DEPLOY_ENV}..."
                 script {
-                    def wranglerArgs = "--project-name=$CLOUDFLARE_PROJECT_NAME --branch=${env.BRANCH_NAME}"
-                    if (env.BRANCH_NAME == 'main') {
-                        wranglerArgs += " --commit-dirty=true"
-                    }
+                    def wranglerArgs = "--project-name=$CLOUDFLARE_PROJECT_NAME --branch=${params.DEPLOY_ENV}"
                     docker.image('node:22-alpine').inside("-e CLOUDFLARE_API_TOKEN=${env.CLOUDFLARE_API_TOKEN} -e CLOUDFLARE_ACCOUNT_ID=${env.CLOUDFLARE_ACCOUNT_ID}") {
                         sh "npm run build --if-present && npx wrangler pages deploy ./dist ${wranglerArgs}"
                     }
@@ -59,7 +63,7 @@ pipeline {
 
     post {
         success {
-            echo "${env.APP_NAME} v${env.VERSION} deployed to ${env.DEPLOY_ENV} successfully!"
+            echo "${env.APP_NAME} v${env.VERSION} deployed to ${params.DEPLOY_ENV} successfully!"
         }
         failure {
             echo "Pipeline failed at build ${env.BUILD_NUMBER}"
