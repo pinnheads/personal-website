@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
     min-height: 100%;
     scroll-behavior: smooth;
@@ -5,19 +9,3 @@ html {
     -ms-overflow-style: none; /* For Internet Explorer and Edge */
     scrollbar-width: none; /* For Firefox */
 }
-
-/* h1, h2, h3, h4, h5, h6 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-h1::after {
-    content: "";
-    display: block;
-    position: relative;
-    background-color: #a4a4a4;
-    width: 800px;
-    height: 2px;
-    margin-left: 20px;
-} */

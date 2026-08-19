@@ -38,7 +38,7 @@
 
 ### ⚡ Requirements
 
--   Node 18.0 or greater
+-   Node 22.12 or greater (required by Astro 7)
 
 ### 🚀 Installation
 
@@ -53,6 +53,33 @@ npm install
 ```bash
 npm run dev
 ```
+
+## 📋 TODO — needs my attention
+
+Left over from the Astro 7 / Cloudflare adapter 14 upgrade. The adapter dropped
+Cloudflare Pages support, so deploys now target Workers.
+
+-   [ ] **Re-point `utsavdeep.com` to the Worker.** The apex domain still routes to the
+    old `personal-website` Pages project. Add it as a custom domain on the
+    `personal-website` Worker in the Cloudflare dashboard, then retire the Pages project.
+-   [ ] **Decide what `preview.utsavdeep.com` points at.** Pages gave a URL per branch for
+    free; Workers does not. `deploy_preview.yml` now runs `wrangler versions upload`, which
+    produces a version-specific URL instead. Either map the subdomain to a preview alias or
+    drop it.
+-   [ ] **Fix or delete `Dockerfile`.** It runs `node dist/server/entry.mjs`, but that file
+    imports `cloudflare:workers` and cannot run under Node. Broken before this upgrade too.
+-   [ ] **Drop the `satteri` override in `package.json`.** Pinned to `0.10.3` because
+    `satteri@0.10.4` never published its `darwin-arm64` and `linux-x64-musl` binaries, which
+    breaks `npm ci` on every platform. Remove once upstream republishes:
+    `npm view @bruits/satteri-linux-x64-musl@<version> version`
+-   [ ] **Decide on Tailwind v4.** Still on v3.4 — it works on Astro 7 now that the
+    deprecated `@astrojs/tailwind` integration is gone and PostCSS handles it directly.
+    v4 means rewriting `tailwind.config.mjs` as a CSS `@theme` block and absorbing v4's
+    default changes (border colors, ring width, `space-y`) across every component.
+-   [ ] **Re-enable the Playwright steps.** They are commented out in all four workflow
+    files. `playwright.config.ts` had its `baseURL` corrected from port 4321 to 3001.
+-   [ ] **Fix the tagline.** The header says "Astro, Tailwind and Svelte" but there is no
+    Svelte in this project.
 
 ## What's Next
 

@@ -19,7 +19,6 @@ pipeline {
         VERSION = "1.0.${env.BUILD_NUMBER}"
         CLOUDFLARE_API_TOKEN = credentials('CLOUDFLARE_API_TOKEN')
         CLOUDFLARE_ACCOUNT_ID = credentials('CLOUDFLARE_ACCOUNT_ID')
-        CLOUDFLARE_PROJECT_NAME = 'personal-website'
     }
 
     stages {
@@ -52,9 +51,9 @@ pipeline {
             steps {
                 echo "Deploying ${env.APP_NAME} v${env.VERSION} to deployment environment: ${params.DEPLOY_ENV}..."
                 script {
-                    def wranglerArgs = "--project-name=$CLOUDFLARE_PROJECT_NAME --branch=${params.DEPLOY_ENV}"
+                    def wranglerCmd = params.DEPLOY_ENV == "production" ? "deploy" : "versions upload"
                     docker.image('node:22-alpine').inside("-e CLOUDFLARE_API_TOKEN=${env.CLOUDFLARE_API_TOKEN} -e CLOUDFLARE_ACCOUNT_ID=${env.CLOUDFLARE_ACCOUNT_ID}") {
-                        sh "npm run build --if-present && npx wrangler pages deploy ./dist ${wranglerArgs}"
+                        sh "npm run build --if-present && npx wrangler ${wranglerCmd} -c dist/server/wrangler.json"
                     }
                 }
             }
